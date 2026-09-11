@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Hybrid Week" />
+<meta name="theme-color" content="#f7f7f5" />
+<title>Hybrid Week</title>
+<style>
+:root{--bg:#f8f8f6;--card:#fff;--text:#151515;--muted:#6f6f72;--line:#e8e5df;--soft:#f2eee8;--green:#1f8f4d;--orange:#d9822b;--red:#cc3a3a;--blue:#2457d6;--pink:#f04f88;--purple:#8b5cf6;--teal:#12a594;--yellow:#f4b63f;--shadow:0 10px 28px rgba(30,30,30,.07);--radius:24px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.35;-webkit-font-smoothing:antialiased}.app{max-width:680px;margin:0 auto;padding:18px 14px 92px}
+header{padding:10px 4px 16px;position:sticky;top:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);z-index:3}.top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+h1{font-size:34px;margin:0;font-weight:850;letter-spacing:-.04em}.pill{border:none;border-radius:999px;padding:10px 13px;background:#111;color:#fff;font-weight:750;font-size:13px}
+.tabs{display:flex;gap:8px;margin-top:16px;overflow:auto;padding-bottom:2px}.tab{border:none;border-radius:999px;background:var(--soft);padding:10px 14px;font-weight:750;color:#333;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(0,0,0,.02)}.tab.active{background:#111;color:#fff}
+.weekbar{display:flex;gap:8px;overflow:auto;padding:0 0 12px;margin:0 0 6px}.weekbtn{border:1px solid var(--line);background:#fff;border-radius:15px;padding:9px 12px;font-weight:800;white-space:nowrap}.weekbtn.active{background:#111;color:#fff;border-color:#111}
+.grid{display:grid;gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:15px}.day-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.day-toggle{appearance:none;border:0;background:transparent;padding:0;margin:0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;width:100%;text-align:left;color:inherit;cursor:pointer}.day-left{display:flex;gap:10px;align-items:flex-start;min-width:0;flex:1}.day-info{min-width:0}.day-chev{font-size:20px;line-height:1;margin-top:3px;color:var(--muted);font-weight:900}.day-body{margin-top:8px}.card.collapsed{padding-bottom:13px}.card.collapsed .day-body{display:none}.today-pill{font-size:11px;font-weight:900;background:#e8f1ff;color:#2457d6;border-radius:999px;padding:4px 8px;margin-left:6px}.day-title{font-size:19px;font-weight:850}.date{font-size:13px;color:var(--muted);font-weight:700}
+.day-progress{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:7px}
+.status-pill{font-size:11px;font-weight:850;border-radius:999px;padding:4px 8px;background:#f1f1ef;color:#555}
+.status-pill.done{background:#e9f8ee;color:#156b39}.status-pill.skip{background:#fff1df;color:#8a4300}.status-pill.surf{background:#e8f1ff;color:#2457d6}
+.tag{font-size:12px;font-weight:850;padding:5px 9px;border-radius:999px;background:var(--soft);color:#333}.tag.hard{background:#ffe7d2;color:#8a4300}.tag.easy{background:#e9f6ee;color:#156b39}.tag.rest{background:#ececec;color:#555}
+.session{margin-top:10px;border-top:1px solid var(--line);padding:12px 0 2px}.session-title{font-weight:850;margin-bottom:4px;display:flex;align-items:center;gap:8px}.small{font-size:13px;color:var(--muted)}.session.run{border-left:4px solid #34c759;padding-left:10px}.session.weights{border-left:4px solid #007aff;padding-left:10px}.session.finisher{border-left:4px solid #ff2d55;padding-left:10px}.session.hyrox{border-left:4px solid #ff9500;padding-left:10px}.session.rest{border-left:4px solid #8e8e93;padding-left:10px}.typeIcon{width:28px;height:28px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:#f4f4f4;font-size:16px;flex:0 0 28px}.run .typeIcon{background:#e9f8ee}.weights .typeIcon{background:#eaf2ff}.finisher .typeIcon{background:#ffeaf1}.hyrox .typeIcon{background:#fff1df}.rest .typeIcon{background:#efeff1}.choice{border:none;background:transparent;padding:0;margin:0 0 6px}.choiceSummary{width:100%;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:850;font-size:16px;line-height:1.25;text-align:left;cursor:pointer}.choiceTitleWrap{display:flex;align-items:center;gap:8px;min-width:0}.choiceTitleWrap span:last-child{overflow-wrap:anywhere}.choiceSummary .chev{font-size:20px;color:var(--muted);line-height:1}.selectedDesc{font-size:13px;color:var(--muted);line-height:1.35;margin-top:5px;max-width:95%}.optionList{margin-top:10px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:white}.optionItem{width:100%;text-align:left;background:white;border:0;border-bottom:1px solid var(--line);padding:12px 14px;font-size:15px;line-height:1.28}.optionItem:last-child{border-bottom:0}.optionItem.active{background:#f6f2ea}.optTitle{font-weight:850;color:var(--text)}.optDesc{font-weight:500;color:var(--muted);margin-top:3px}.star{font-weight:850}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}.surfBtn{margin-left:auto}
+button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:9px 11px;font-weight:750;box-shadow:0 1px 0 rgba(0,0,0,.02)}.btn.done{background:#e9f6ee;border-color:#bfe7cc;color:#145f35}.btn.skip{background:#fff2f2;border-color:#ffd1d1;color:#9d2424}.btn.primary{background:#111;color:#fff;border-color:#111}.btn.blue{background:#eff4ff;border-color:#cfdcff;color:#224da8}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.form .wide{grid-column:1/-1}label{font-size:12px;color:var(--muted);font-weight:750;display:block;margin-bottom:4px}input,select,textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:13px;padding:10px;color:#111}textarea{min-height:62px;resize:vertical}
+.progress-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:8px 0 14px}.metric{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;text-align:center;position:relative;overflow:hidden}.metric:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:#34c759}.metric:nth-child(2):before{background:#007aff}.metric:nth-child(3):before{background:#ff2d55}.metric:nth-child(4):before{background:#12a594}.metric b{font-size:22px;display:block}.metric span{font-size:12px;color:var(--muted);font-weight:750}.metric .mi{display:block;font-size:15px;margin-bottom:2px}
+.library details,.perf{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0}.perf summary{font-size:14px;color:#333}.perf[open] summary{margin-bottom:4px}summary{font-weight:850;font-size:17px}.libitem{padding:10px 0;border-top:1px solid var(--line)}.libitem:first-of-type{border-top:none}.muted{color:var(--muted)}.copybox{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px;font-size:13px}
+.counter{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.counter:first-child{border-top:none}.badge{min-width:34px;text-align:center;font-weight:900;border-radius:999px;padding:5px 9px;background:var(--soft)}
+.surfbox{border:1px solid var(--line);background:#fbfaf8;border-radius:16px;margin-top:10px;padding:11px}.footer-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:center;z-index:5}.footer-nav .inner{max-width:680px;width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.navbtn{border:none;border-radius:15px;padding:10px 4px;background:transparent;font-size:12px;font-weight:850;color:#555}.navbtn.active{background:#111;color:#fff}.hidden{display:none!important}.section-title{font-size:23px;font-weight:850;margin:16px 3px 10px;letter-spacing:-.02em}.hint{font-size:13px;color:var(--muted);margin:4px 3px 12px}.principles-text{font-size:15px;margin:0;color:#222;line-height:1.45}.principles-text ul{margin:10px 0 0 18px;padding:0}.principles-text li{margin:8px 0}.source-list{font-size:13px;color:var(--muted);line-height:1.45;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.summary-reset{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}.btn.danger{color:#9f1239;border-color:#ffd1dc;background:#fff7fa}.tiny{font-size:12px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="top"><h1>Hybrid Week</h1></div>
+<div class="tabs"><button class="tab active" onclick="showTab('plan')">📅 Plan</button><button class="tab" onclick="showTab('library')">📚 Library</button><button class="tab" onclick="showTab('counters')">📊 Counters</button><button class="tab" onclick="showTab('summary')">📝 Summary</button><button class="tab" onclick="showTab('principles')">⭐ Principles</button></div></header>
+
+<main id="plan"><div class="weekbar" id="weekbar"></div><div class="progress-wrap" id="metrics"></div><div class="grid" id="weekGrid"></div></main>
+
+<main id="library" class="hidden library"><div class="section-title">Workout Library</div><div class="hint">Most finishers are adapted from JK’s style: sustained EMOM/AMRAP work, 6–7/10 effort, Hyrox stations, no death-circuit ego.</div>
+<details open><summary>Runs</summary>
+<div class="libitem"><b>LT2 / Threshold</b><br><span class="muted">2 km easy, 4 x 1500 m controlled hard, 2 min rest, 2 km cool.</span></div>
+<div class="libitem"><b>800s</b><br><span class="muted">2 km warm-up, 8–10 x 800 m, 80 sec walk, 2 km cool.</span></div>
+<div class="libitem"><b>400s</b><br><span class="muted">2 km warm-up, 16 x 400 m, 45 sec walk, 2 km cool.</span></div>
+<div class="libitem"><b>VO2 4 x 4</b><br><span class="muted">2 km warm-up, 4 x 4 min hard, 4 min full rest, 2 km cool. Every 4 weeks.</span></div>
+<div class="libitem"><b>Long easy</b><br><span class="muted">60–75 min Zone 1/2. Easy volume. No ego pace.</span></div>
+<div class="libitem"><b>Recovery run</b><br><span class="muted">25–40 min easy. Boring is correct.</span></div></details>
+
+<details open><summary>15–25-min Finishers</summary>
+<div class="libitem"><b>JK Engine EMOM</b><br><span class="muted">20 min EMOM. 5 rounds of 4 mins. Min 1: 15/12 cal row. Min 2: 15/12 cal ski. Min 3: 15 wall balls at race weight, add 1 rep only if clean. Min 4: 15/12 cal bike. Hold 7/10.</span></div>
+<div class="libitem"><b>JK Active Recovery AMRAP</b><br><span class="muted">20–25 min AMRAP. 500m ski, 25 air squats, 15 push-ups, 200m easy run. Hold 6/10. Smooth volume, not a smash.</span></div>
+<div class="libitem"><b>Wall-ball Progression</b><br><span class="muted">15–20 min EMOM. 10–15 wall balls every minute. Add reps only when breathing and squat depth stay clean. Stop before ugly reps.</span></div>
+<div class="libitem"><b>DB Overhead Block</b><br><span class="muted">16–20 min EMOM. Odd mins: 12–15 DB push press. Even mins: 4–6 devil press. This targets your race limiter. Legs drive every rep.</span></div>
+<div class="libitem"><b>Ski / Burpee Rhythm</b><br><span class="muted">15–20 min AMRAP. 250m ski + 8–10 burpees or BBJ. Keep breathing steady. No frantic reps.</span></div>
+<div class="libitem"><b>Sled Push / Pull</b><br><span class="muted">20 min alternating EMOM. Odd mins: 12.5m sled push. Even mins: 12.5m sled pull. Technique first. Full control.</span></div>
+<div class="libitem"><b>Lunge / Carry Block</b><br><span class="muted">20 min EMOM. Odd mins: 20m walking lunges. Even mins: 40m farmers carry. Brace, breathe, move without rushing.</span></div>
+<div class="libitem"><b>Mixed Station Coverage</b><br><span class="muted">24 min EMOM. Rotate 4 stations for 6 rounds: row or ski, wall balls, lunges or carry, sled or burpees. Use this when a station has been missed recently.</span></div></details>
+
+<details open><summary>F45 Hyrox-specific</summary>
+<div class="libitem"><b>Thursday class</b><br><span class="muted">Main weekly compromised exposure. Keep it controlled hard and track RPE/HR.</span></div>
+<div class="libitem"><b>Benchmark focus</b><br><span class="muted">Weeks 4 and 8. Use Thursday class as the benchmark/simulation focus. Do not add extra work.</span></div>
+<div class="libitem"><b>Compromised run goal</b><br><span class="muted">Arrive from row/ski/station work, then run composed. This is race skill.</span></div></details>
+</main>
+
+<main id="counters" class="hidden"><div class="section-title">Counters</div><div class="card"><div class="session-title">Finishers completed</div><div id="finisherCounts"></div></div><div style="height:12px"></div><div class="card"><div class="session-title">Hyrox simulations</div><div id="simulationCounts"></div></div><div style="height:12px"></div><div class="card"><div class="session-title">Surf tally</div><div id="surfCounts"></div></div></main>
+
+<main id="summary" class="hidden"><div class="section-title">Weekly Summary</div><div class="hint">Copy this into ChatGPT for coaching adjustments.</div><button class="btn primary" onclick="copySummary()">Copy summary</button><button class="btn" onclick="renderSummary()">Refresh</button><div style="height:12px"></div><div class="copybox" id="summaryBox"></div><div class="summary-reset"><button class="btn danger" onclick="resetPlan()">Reset data</button><div class="hint tiny">Clears saved progress, notes, surf logs and selections. The built-in 8-week plan stays.</div></div></main>
+
+<main id="principles" class="hidden">
+  <div class="section-title">Training Principles</div>
+  <div class="card">
+    <div class="principles-text">
+      <p><b>Intention:</b> build a strong Hyrox engine and better station endurance without turning every day into a race.</p>
+      <ul>
+        <li><b>Train 60–90 minutes most days.</b> Enough work to improve. Not so much you break.</li>
+        <li><b>Three stress points.</b> Tuesday quality run. Thursday F45 Hyrox class. Weekend long easy run.</li>
+        <li><b>Easy volume matters.</b> Recovery runs, long easy runs and mellow surf build the engine.</li>
+        <li><b>Weights stay in.</b> They keep muscle, strength and joint resilience.</li>
+        <li><b>Finishers are 15–25 minutes.</b> They turn gym strength into repeatable Hyrox station work.</li>
+        <li><b>Use JK’s structure.</b> EMOMs, AMRAPs, row, ski, wall balls, bike and steady 6–7/10 pacing.</li>
+        <li><b>Adapt where needed.</b> Sleds, carries, lunges, DB push press and devil press cover your Hyrox gaps.</li>
+        <li><b>VO2 is every 4 weeks.</b> Useful, but costly.</li>
+        <li><b>Weeks 4 and 8 benchmark.</b> Use the Thursday Hyrox class as the simulation focus. Do not add extra.</li>
+      </ul>
+      <div class="source-list">
+        <b>Sources used:</b><br>
+        • JK 32-min EMOM: row, ski, wall balls, C2 bike, sustained 7/10.<br>
+        • JK 45-min AMRAP: ski, air squats, push-ups, run at 6/10.<br>
+        • JK run work: easy Z1/2, long Z1/2, 800s, VO2 4 x 4.<br>
+        • Tom race data: push press and devil press were the main limiters.<br>
+        • Sled, carry, lunge and DB finishers are coaching adaptations to fill Hyrox station gaps.
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+<nav class="footer-nav"><div class="inner"><button class="navbtn active" onclick="showTab('plan')">📅<br>Plan</button><button class="navbtn" onclick="showTab('library')">📚<br>Library</button><button class="navbtn" onclick="showTab('counters')">📊<br>Counters</button><button class="navbtn" onclick="showTab('summary')">📝<br>Summary</button><button class="navbtn" onclick="showTab('principles')">⭐<br>Principles</button></div></nav>
+
+<script>
+const KEY="hybridWeek.v14";
+const startDateStr="2026-09-12";
+const finishers=[
+  "JK Engine EMOM",
+  "JK Active Recovery AMRAP",
+  "Wall-ball Progression",
+  "DB Overhead Block",
+  "Ski / Burpee Rhythm",
+  "Sled Push / Pull",
+  "Lunge / Carry Block",
+  "Mixed Station Coverage"
+];
+const finisherOptions=[
+  "JK Engine EMOM: 20 min EMOM — 15/12 cal row, 15/12 cal ski, 15 wall balls + optional add, 15/12 cal bike x 5 rounds @ 7/10",
+  "JK Active Recovery AMRAP: 20–25 min — 500m ski, 25 air squats, 15 push-ups, 200m easy run @ 6/10",
+  "Wall-ball Progression: 15–20 min EMOM — 10–15 wall balls every minute, add reps only if clean",
+  "DB Overhead Block: 16–20 min EMOM — odd 12–15 DB push press, even 4–6 devil press",
+  "Ski / Burpee Rhythm: 15–20 min AMRAP — 250m ski + 8–10 burpees or BBJ",
+  "Sled Push / Pull: 20 min EMOM — odd 12.5m sled push, even 12.5m sled pull",
+  "Lunge / Carry Block: 20 min EMOM — odd 20m walking lunges, even 40m farmers carry",
+  "Mixed Station Coverage: 24 min EMOM — row/ski, wall balls, lunges/carry, sled/burpees x 6 rounds"
+];
+const runOptions=[
+  "LT2 / threshold: 4 x 1500 m",
+  "800s: 8–10 x 800 m",
+  "400s: 16 x 400 m",
+  "VO2: 4 x 4 min hard",
+  "Long easy: 60–75 min Z1/2",
+  "Recovery run: 25–40 min easy"
+];
+const workoutInfo={
+  "LT2 / threshold: 4 x 1500 m":{title:"LT2 / threshold",desc:"Warm up 2 km easy. Run 4 x 1500 m at controlled hard pace, about threshold. Rest 2 min easy between reps. Cool down 2 km. Finish feeling worked, not wrecked."},
+  "800s: 8–10 x 800 m":{title:"800s",desc:"Warm up 2 km easy. Run 8–10 x 800 m faster than threshold but smooth. Walk 80 sec between reps. Cool down 2 km. Keep form relaxed."},
+  "400s: 16 x 400 m":{title:"400s",desc:"Warm up 2 km easy. Run 16 x 400 m sharp but not sprinting. Walk 45 sec between reps. Cool down 2 km. Stop chasing pace if form falls apart."},
+  "VO2: 4 x 4 min hard":{title:"VO2",desc:"Do this every 4 weeks only. Warm up well. Run 4 x 4 min hard with 4 min full recovery. Rep 1 controlled, reps 2–3 hard, rep 4 strong."},
+  "Long easy: 60–75 min Z1/2":{title:"Long easy run",desc:"Run 60–75 min in Zone 1/2. Keep it relaxed and conversational. This builds aerobic volume without smashing your legs. No tempo creep."},
+  "Recovery run: 25–40 min easy":{title:"Recovery run",desc:"Run 25–40 min very easy. This is for blood flow, rhythm and extra volume. Finish fresher than you started."},
+
+  "JK Engine EMOM: 20 min EMOM — 15/12 cal row, 15/12 cal ski, 15 wall balls + optional add, 15/12 cal bike x 5 rounds @ 7/10":{title:"JK Engine EMOM",desc:"20 min EMOM, repeat 5 rounds: min 1 row 15/12 cal, min 2 ski 15/12 cal, min 3 15 wall balls, min 4 bike 15/12 cal. Work at 7/10."},
+  "JK Active Recovery AMRAP: 20–25 min — 500m ski, 25 air squats, 15 push-ups, 200m easy run @ 6/10":{title:"JK Active Recovery AMRAP",desc:"20–25 min steady AMRAP: 500 m ski, 25 air squats, 15 push-ups, 200 m easy run. Keep it 6/10. Smooth breathing, clean reps."},
+  "Wall-ball Progression: 15–20 min EMOM — 10–15 wall balls every minute, add reps only if clean":{title:"Wall-ball Progression",desc:"15–20 min EMOM. Start with 10–12 wall balls each minute. Build toward 15 only if depth, target and breathing stay clean. Stop before sloppy reps."},
+  "DB Overhead Block: 16–20 min EMOM — odd 12–15 DB push press, even 4–6 devil press":{title:"DB Overhead Block",desc:"16–20 min EMOM. Odd minutes: 12–15 DB push press. Even minutes: 4–6 devil press. Use legs, breathe, avoid strict-press grinding."},
+  "Ski / Burpee Rhythm: 15–20 min AMRAP — 250m ski + 8–10 burpees or BBJ":{title:"Ski / Burpee Rhythm",desc:"15–20 min AMRAP. Do 250 m ski, then 8–10 burpees or burpee broad jumps. Keep the transitions calm. Rhythm beats panic."},
+  "Sled Push / Pull: 20 min EMOM — odd 12.5m sled push, even 12.5m sled pull":{title:"Sled Push / Pull",desc:"20 min EMOM. Odd minutes: 12.5 m sled push. Even minutes: 12.5 m sled pull. Full control, strong body angle, no max-effort hero reps."},
+  "Lunge / Carry Block: 20 min EMOM — odd 20m walking lunges, even 40m farmers carry":{title:"Lunge / Carry Block",desc:"20 min EMOM. Odd minutes: 20 m walking lunges. Even minutes: 40 m farmers carry. Stay braced, step steady, grip calm."},
+  "Mixed Station Coverage: 24 min EMOM — row/ski, wall balls, lunges/carry, sled/burpees x 6 rounds":{title:"Mixed Station Coverage",desc:"24 min EMOM, repeat 6 rounds: row or ski, wall balls, lunges or carry, sled or burpees. Rotate weak stations so the whole Hyrox menu gets touched."}
+};
+function parseLocalDate(s){const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
+function iso(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+function dateLabel(d){return d.toLocaleDateString("en-AU",{weekday:"short",month:"short",day:"numeric"})}
+function runForWeek(w){const r=(w-1)%4; if(r===0)return"LT2 / threshold: 4 x 1500 m"; if(r===1)return"800s: 8–10 x 800 m"; if(r===2)return"400s: 16 x 400 m"; return"VO2: 4 x 4 min hard"}
+function baseDay(dayName,dt,w){
+  const dated={day:dayName,date:iso(dt),dateText:dateLabel(dt),load:"easy",sessions:[],surf:{done:false,notes:""}};
+  if(dayName==="Sat"){dated.load="easy";dated.sessions=[{name:"Long easy run",detail:"Long easy: 60–75 min Z1/2",done:false,run:true}];return dated}
+  if(dayName==="Sun"){dated.load="rest";dated.sessions=[{name:"Full rest",detail:"No training. Walk is fine.",done:false}];return dated}
+  if(dayName==="Mon"){dated.sessions=[{name:"F45 weights",detail:"Strength base. Keep it clean.",done:false},{name:"Easy run",detail:"Recovery run: 25–40 min easy",done:false,run:true},{name:"15–25-min finisher",detail:"JK Engine EMOM: 20 min EMOM — 15/12 cal row, 15/12 cal ski, 15 wall balls + optional add, 15/12 cal bike x 5 rounds @ 7/10",done:false,finisher:true}];return dated}
+  if(dayName==="Tue"){dated.load="hard";dated.sessions=[{name:"Quality run",detail:runForWeek(w),done:false,run:true}];return dated}
+  if(dayName==="Wed"){dated.sessions=[{name:"F45 weights",detail:"Strength base. No redline.",done:false},{name:"15–25-min finisher",detail:"DB Overhead Block: 16–20 min EMOM — odd 12–15 DB push press, even 4–6 devil press",done:false,finisher:true}];return dated}
+  if(dayName==="Thu"){
+    dated.load="hard";
+    if(w===4||w===8){
+      dated.sessions=[{name:"Hyrox specific F45 class",detail:"Benchmark/simulation focus inside the normal class. Track RPE, HR and notes. Do not add extra work.",done:false,hyrox:true,simulation:true}];
+    }else{
+      dated.sessions=[{name:"Hyrox specific F45 class",detail:"F45 staple. This is your weekly compromised Hyrox exposure.",done:false,hyrox:true}];
+    }
+    return dated
+  }
+  if(dayName==="Fri"){
+    const rot=[
+      "Sled Push / Pull: 20 min EMOM — odd 12.5m sled push, even 12.5m sled pull",
+      "Lunge / Carry Block: 20 min EMOM — odd 20m walking lunges, even 40m farmers carry",
+      "Ski / Burpee Rhythm: 15–20 min AMRAP — 250m ski + 8–10 burpees or BBJ",
+      "Mixed Station Coverage: 24 min EMOM — row/ski, wall balls, lunges/carry, sled/burpees x 6 rounds",
+      "Wall-ball Progression: 15–20 min EMOM — 10–15 wall balls every minute, add reps only if clean",
+      "JK Active Recovery AMRAP: 20–25 min — 500m ski, 25 air squats, 15 push-ups, 200m easy run @ 6/10",
+      "JK Engine EMOM: 20 min EMOM — 15/12 cal row, 15/12 cal ski, 15 wall balls + optional add, 15/12 cal bike x 5 rounds @ 7/10"
+    ];
+    dated.sessions=[{name:"F45 weights / easy run",detail:"Choose based on recovery. Keep it controlled.",done:false},{name:"15–25-min light finisher",detail:rot[(w-1)%rot.length],done:false,finisher:true}];return dated
+  }
+  return dated
+}
+function buildPlan(){
+  const days=["Sat","Sun","Mon","Tue","Wed","Thu","Fri"];
+  let start=parseLocalDate(startDateStr), weeks=[];
+  for(let w=1;w<=8;w++){
+    const weekStart=addDays(start,(w-1)*7);
+    weeks.push({number:w,start:iso(weekStart),end:iso(addDays(weekStart,6)),days:days.map((dn,i)=>baseDay(dn,addDays(weekStart,i),w))});
+  }
+  return weeks;
+}
+function normalizeState(st){
+  st.weeks.forEach(w=>w.days.forEach(d=>d.sessions.forEach(s=>{
+    if((s.run||s.finisher) && !s.recommended) s.recommended=s.detail;
+  })));
+  return st;
+}
+function load(){const raw=localStorage.getItem(KEY);if(raw){try{return normalizeState(JSON.parse(raw))}catch(e){}}return normalizeState({currentWeek:0,weeks:buildPlan()})}
+let state=load();
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function showTab(id){document.querySelectorAll("main").forEach(m=>m.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");document.querySelectorAll(".tab,.navbtn").forEach(b=>b.classList.remove("active"));document.querySelectorAll(".tab,.navbtn").forEach(b=>{let t=b.textContent.trim().toLowerCase();if(t.includes(id)||(id==="plan"&&t.includes("plan")))b.classList.add("active")});if(id==="summary")renderSummary();if(id==="counters")renderCounters()}
+function currentWeek(){return state.weeks[state.currentWeek]}
+function renderAll(){renderWeekbar();renderWeek();renderMetrics();renderCounters();renderSummary()}
+function renderWeekbar(){const el=document.getElementById("weekbar");el.innerHTML=state.weeks.map((w,i)=>`<button class="weekbtn ${i===state.currentWeek?"active":""}" onclick="state.currentWeek=${i};save();renderAll()">W${w.number}<br><span style="font-size:11px;font-weight:650">${shortDate(w.start)}</span></button>`).join("")}
+function shortDate(s){const d=parseLocalDate(s);return d.toLocaleDateString("en-AU",{month:"short",day:"numeric"})}
+function tagClass(load){return load==="hard"?"hard":load==="rest"?"rest":"easy"}
+function escapeHtml(str){return String(str).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function getInfo(txt){
+  if(workoutInfo[txt]) return workoutInfo[txt];
+  const s=String(txt); const idx=s.indexOf(":");
+  if(idx<0) return {title:s,desc:""};
+  return {title:s.slice(0,idx).trim(),desc:s.slice(idx+1).trim()};
+}
+function sessionType(s){
+  const t=((s.name||"")+" "+(s.detail||"")).toLowerCase();
+  if(s.hyrox || /hyrox/.test(t)) return "hyrox";
+  if(s.finisher || /finisher|emom|amrap|wall-ball|wall ball|sled|devil|burpee|carry|lunge/.test(t)) return "finisher";
+  if(s.run || /run|lt2|threshold|800s|400s|vo2|easy/.test(t)) return "run";
+  if(/rest/.test(t)) return "rest";
+  if(/weight|f45/.test(t)) return "weights";
+  return "weights";
+}
+function sessionIcon(s){
+  const ty=sessionType(s);
+  if(ty==="run") return "🏃";
+  if(ty==="weights") return "🏋️";
+  if(ty==="finisher") return "🔥";
+  if(ty==="hyrox") return "⚡";
+  if(ty==="rest") return "🛌";
+  return "✅";
+}
+function optionItemHtml(txt, star=false){
+  const p=getInfo(txt);
+  return `<div class="optTitle">${escapeHtml(p.title)}${star?` <span class="star">★</span>`:""}</div>${p.desc?`<div class="optDesc">${escapeHtml(p.desc)}</div>`:""}`;
+}
+function optionSelect(options,current,recommended,wi,di,si,icon){
+  const rec=recommended||current;
+  const info=getInfo(current);
+  const cid=`choice-${wi}-${di}-${si}`;
+  return `<div class="choice" id="${cid}"><button type="button" class="choiceSummary" onclick="toggleChoice(\'${cid}\')"><span class="choiceTitleWrap"><span class="typeIcon">${icon||"✅"}</span><span>${escapeHtml(info.title)}</span></span><span class="chev">⌄</span></button>${info.desc?`<div class="selectedDesc">${escapeHtml(info.desc)}</div>`:""}<div class="optionList hidden">${options.map(o=>`<button class="optionItem ${o===current?"active":""}" onclick="changeDetail(${wi},${di},${si},this.dataset.value)" data-value="${escapeHtml(o)}">${optionItemHtml(o,o===rec)}</button>`).join("")}</div></div>`
+}
+function toggleChoice(id){
+  const el=document.getElementById(id);
+  if(!el) return;
+  const list=el.querySelector('.optionList');
+  const chev=el.querySelector('.chev');
+  list.classList.toggle('hidden');
+  if(chev) chev.textContent=list.classList.contains('hidden')?'⌄':'⌃';
+}
+function todayIso(){return iso(new Date())}
+function firstOpenDayIndex(w){
+  const today=todayIso();
+  const exact=w.days.findIndex(d=>d.date===today);
+  if(exact>=0) return exact;
+  const now=new Date(today+"T00:00:00");
+  const next=w.days.findIndex(d=>parseLocalDate(d.date)>=now);
+  return next>=0 ? next : 0;
+}
+function dayOpenKey(wi,di){return `w${wi}-d${di}`}
+function isDayOpen(wi,di){
+  const w=state.weeks[wi];
+  const d=w.days[di];
+  const today=todayIso();
+
+  // Always keep today's card open. If the plan hasn't started yet,
+  // keep the next upcoming planned day open.
+  if(d.date===today) return true;
+  const target=firstOpenDayIndex(w);
+  const exact=w.days.findIndex(day=>day.date===today);
+  if(exact<0 && di===target) return true;
+
+  state.openDays=state.openDays||{};
+  const key=dayOpenKey(wi,di);
+  if(Object.prototype.hasOwnProperty.call(state.openDays,key)) return !!state.openDays[key];
+  return false;
+}
+function toggleDay(wi,di){
+  state.openDays=state.openDays||{};
+  const key=dayOpenKey(wi,di);
+  state.openDays[key]=!isDayOpen(wi,di);
+  save();
+  renderWeek();
+}
+
+function dayStatusHtml(d){
+  const total=d.sessions.length;
+  const done=d.sessions.filter(s=>s.done).length;
+  let cls = done===total ? "done" : "";
+  let text = `${done}/${total} done`;
+  return `<div class="day-progress"><span class="status-pill ${cls}">${text}</span></div>`;
+}
+function renderWeek(){const grid=document.getElementById("weekGrid"),w=currentWeek();grid.innerHTML="";w.days.forEach((d,di)=>{const card=document.createElement("div");const open=isDayOpen(state.currentWeek,di);const isToday=d.date===todayIso();card.className=`card ${open?"":"collapsed"}`;card.innerHTML=`<button type="button" class="day-toggle" onclick="toggleDay(${state.currentWeek},${di})"><div class="day-left"><span class="day-chev">${open?"⌃":"⌄"}</span><div class="day-info"><div class="day-title">${d.day}${isToday?` <span class="today-pill">TODAY</span>`:""}</div><div class="date">${d.dateText}</div>${dayStatusHtml(d)}</div></div><div class="tag ${tagClass(d.load)}">${d.load.toUpperCase()}</div></button><div class="day-body"></div>`;const body=card.querySelector(".day-body");
+d.sessions.forEach((s,si)=>{const wrap=document.createElement("div");const ty=sessionType(s);wrap.className=`session ${ty}`;const icon=sessionIcon(s);const picker=s.run?optionSelect(runOptions,s.detail,s.recommended||s.detail,state.currentWeek,di,si,icon):s.finisher?optionSelect(finisherOptions,s.detail,s.recommended||s.detail,state.currentWeek,di,si,icon):"";const surfBtn=si===0?`<button class="btn surfBtn ${d.surf&&d.surf.done?"done":""}" onclick="toggleSurf(${state.currentWeek},${di})">${d.surf&&d.surf.done?"✓ 🏄 Surf":"🏄 + Surf"}</button>`:"";wrap.innerHTML=`${picker||`<div class="session-title"><span class="typeIcon">${icon}</span>${s.name}</div><div class="small">${s.detail}</div>`}<div class="controls"><button class="btn ${s.done?"done":""}" onclick="toggleDone(${state.currentWeek},${di},${si})">${s.done?"✓ Complete":"Mark complete"}</button><button class="btn ${s.skipped?"skip":""}" onclick="toggleSkipped(${state.currentWeek},${di},${si})">${s.skipped?"Skipped":"Skip"}</button>${surfBtn}</div><details class="perf"><summary>Performance notes</summary><div class="form"><div><label>RPE</label><input type="number" min="1" max="10" placeholder="1–10" value="${s.rpe||""}" oninput="updateField(${state.currentWeek},${di},${si},'rpe',this.value)"></div><div><label>Avg HR</label><input type="number" placeholder="bpm" value="${s.hr||""}" oninput="updateField(${state.currentWeek},${di},${si},'hr',this.value)"></div><div><label>Pace</label><input placeholder="e.g. 5:00/km" value="${s.pace||""}" oninput="updateField(${state.currentWeek},${di},${si},'pace',this.value)"></div><div><label>Max HR</label><input type="number" placeholder="bpm" value="${s.maxhr||""}" oninput="updateField(${state.currentWeek},${di},${si},'maxhr',this.value)"></div><div class="wide"><label>Notes</label><textarea placeholder="What happened?" oninput="updateField(${state.currentWeek},${di},${si},'notes',this.value)">${s.notes||""}</textarea></div></div></details>`;body.appendChild(wrap)});
+grid.appendChild(card)})}
+function toggleDone(wi,di,si){const s=state.weeks[wi].days[di].sessions[si];s.done=!s.done;if(s.done)s.skipped=false;save();renderAll()}
+function toggleSkipped(wi,di,si){const s=state.weeks[wi].days[di].sessions[si];s.skipped=!s.skipped;if(s.skipped)s.done=false;save();renderAll()}
+function updateField(wi,di,si,field,val){state.weeks[wi].days[di].sessions[si][field]=val;save();renderMetrics();renderCounters();renderSummary()}
+function changeDetail(wi,di,si,val){state.weeks[wi].days[di].sessions[si].detail=val;save();renderAll()}
+function toggleSurf(wi,di){let surf=state.weeks[wi].days[di].surf||{done:false,notes:""};surf.done=!surf.done;state.weeks[wi].days[di].surf=surf;save();renderAll()}
+function updateSurf(wi,di,val){state.weeks[wi].days[di].surf=state.weeks[wi].days[di].surf||{done:false,notes:""};state.weeks[wi].days[di].surf.notes=val;save();renderCounters();renderSummary()}
+function allSessions(){return state.weeks.flatMap((w,wi)=>w.days.flatMap((d,di)=>d.sessions.map((s,si)=>({...s,week:w.number,day:d.day,date:d.date,load:d.load,wi,di,si}))))}
+function currentSessions(){const w=currentWeek();return w.days.flatMap(d=>d.sessions.map(s=>({...s,load:d.load})))}
+function renderMetrics(){const sessions=currentSessions();const done=sessions.filter(s=>s.done).length,total=sessions.length;const runs=sessions.filter(s=>s.done&&s.run).length;const finish=sessions.filter(s=>s.done&&s.finisher).length;const surfs=currentWeek().days.filter(d=>d.surf&&d.surf.done).length;document.getElementById("metrics").innerHTML=`<div class="metric"><span class="mi">✅</span><b>${done}/${total}</b><span>done</span></div><div class="metric"><span class="mi">🏃</span><b>${runs}</b><span>runs</span></div><div class="metric"><span class="mi">🔥</span><b>${finish}</b><span>finishers</span></div><div class="metric"><span class="mi">🏄</span><b>${surfs}</b><span>surfs</span></div>`}
+function classifyFinisher(detail){
+  const d=detail.toLowerCase();
+  if(/active recovery|air squats|push-ups|push ups/.test(d))return"JK Active Recovery AMRAP";
+  if(/jk engine|15\/12 cal row|c2 bike|bike/.test(d))return"JK Engine EMOM";
+  if(/wall-ball progression|wallball|wall ball|wall balls/.test(d))return"Wall-ball Progression";
+  if(/db overhead|db push press|devil/.test(d))return"DB Overhead Block";
+  if(/ski \/ burpee|burpee|bbj/.test(d))return"Ski / Burpee Rhythm";
+  if(/sled push|sled pull/.test(d))return"Sled Push / Pull";
+  if(/lunge|farmer|carry/.test(d))return"Lunge / Carry Block";
+  return"Mixed Station Coverage"
+}
+function renderCounters(){const counts={};finishers.forEach(f=>counts[f]=0);allSessions().filter(s=>s.finisher&&s.done).forEach(s=>counts[classifyFinisher(s.detail)]++);const fc=document.getElementById("finisherCounts");if(fc)fc.innerHTML=finishers.map(f=>`<div class="counter"><div>${f}</div><div class="badge">${counts[f]}</div></div>`).join("");const simDone=allSessions().filter(s=>s.simulation&&s.done).length;const simPlanned=allSessions().filter(s=>s.simulation).length;const sim=document.getElementById("simulationCounts");if(sim)sim.innerHTML=`<div class="counter"><div>Simulations completed</div><div class="badge">${simDone}/${simPlanned}</div></div><div class="counter"><div>Planned weeks</div><div class="badge">W4 + W8</div></div>`;const totalSurfs=state.weeks.flatMap(w=>w.days).filter(d=>d.surf&&d.surf.done).length;const thisWeek=currentWeek().days.filter(d=>d.surf&&d.surf.done).length;const sc=document.getElementById("surfCounts");if(sc)sc.innerHTML=`<div class="counter"><div>Total surfs across 8 weeks</div><div class="badge">${totalSurfs}</div></div><div class="counter"><div>This week</div><div class="badge">${thisWeek}</div></div>`}
+function renderSummary(){const w=currentWeek();const lines=[];lines.push(`Hybrid Week summary — Week ${w.number} (${shortDate(w.start)}–${shortDate(w.end)})`);lines.push(`Completion: ${currentSessions().filter(s=>s.done).length}/${currentSessions().length}`);lines.push(`Runs: ${currentSessions().filter(s=>s.done&&s.run).length}. Finishers: ${currentSessions().filter(s=>s.done&&s.finisher).length}. Simulations: ${currentSessions().filter(s=>s.done&&s.simulation).length}. Surfs: ${w.days.filter(d=>d.surf&&d.surf.done).length}.`);
+w.days.forEach(d=>{const done=d.sessions.filter(s=>s.done).map(s=>`${s.name}: ${s.detail}${s.rpe?`, RPE ${s.rpe}`:""}${s.pace?`, pace ${s.pace}`:""}${s.hr?`, avg HR ${s.hr}`:""}${s.maxhr?`, max HR ${s.maxhr}`:""}${s.notes?`, notes: ${s.notes}`:""}`);const skipped=d.sessions.filter(s=>s.skipped).map(s=>`${s.name} skipped`);const surf=d.surf&&d.surf.done?`Surf`:"";const items=done.concat(skipped);if(surf)items.push(surf);if(items.length)lines.push(`${d.day} ${shortDate(d.date)}: ${items.join(" | ")}`)});
+lines.push("Coach: adjust next week based on this.");const box=document.getElementById("summaryBox");if(box)box.textContent=lines.join("\n")}
+async function copySummary(){renderSummary();const text=document.getElementById("summaryBox").textContent;try{await navigator.clipboard.writeText(text);alert("Summary copied.")}catch(e){alert("Copy failed. Select the text and copy manually.")}}
+function resetPlan(){if(confirm("This clears saved progress, notes, surf logs and selections. The built-in 8-week plan stays. Reset data?")){localStorage.removeItem(KEY);state=load();renderAll()}}
+renderAll();
+</script>
+</body>
+</html>
