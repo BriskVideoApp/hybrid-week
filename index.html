@@ -13,7 +13,7 @@
 header{padding:10px 4px 16px;position:sticky;top:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);z-index:3}.top{display:flex;justify-content:space-between;gap:12px;align-items:center}
 h1{font-size:34px;margin:0;font-weight:850;letter-spacing:-.04em}.pill{border:none;border-radius:999px;padding:10px 13px;background:#111;color:#fff;font-weight:750;font-size:13px}
 .tabs{display:flex;gap:8px;margin-top:16px;overflow:auto;padding-bottom:2px}.tab{border:none;border-radius:999px;background:var(--soft);padding:10px 14px;font-weight:750;color:#333;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(0,0,0,.02)}.tab.active{background:#111;color:#fff}
-.weekbar{display:flex;gap:8px;overflow:auto;padding:0 0 12px;margin:0 0 6px}.weekbtn{border:1px solid var(--line);background:#fff;border-radius:15px;padding:9px 12px;font-weight:800;white-space:nowrap}.weekbtn.active{background:#111;color:#fff;border-color:#111}
+.weekTop{display:grid;grid-template-columns:.95fr 4fr;gap:9px;align-items:stretch;margin:0 0 14px} .weekbar{min-width:0;position:relative;display:flex}.weekPicker{width:100%;height:100%;min-height:96px;border:0;background:#111;color:#fff;border-radius:20px;padding:12px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;text-align:center;cursor:pointer}.weekPicker .wMain{font-weight:900;font-size:22px;line-height:1}.weekPicker .wDate{font-size:12px;font-weight:800;opacity:.88;margin-top:8px}.weekPicker .wChevron{font-size:20px;font-weight:900;line-height:1;opacity:.9;align-self:center}.weekMenu{position:absolute;top:74px;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:6px;z-index:20;display:none}.weekMenu.open{display:block}.weekOption{width:100%;border:0;background:#fff;border-radius:13px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;text-align:left;font-weight:850}.weekOption span{color:var(--muted);font-size:12px;font-weight:800}.weekOption.active{background:#111;color:#fff}.weekOption.active span{color:#fff;opacity:.86}.weekbtn{border:1px solid var(--line);background:#fff;border-radius:15px;padding:9px 12px;font-weight:800;white-space:nowrap}.weekbtn.active{background:#111;color:#fff;border-color:#111}
 .grid{display:grid;gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:15px}.day-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.day-toggle{appearance:none;border:0;background:transparent;padding:0;margin:0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;width:100%;text-align:left;color:inherit;cursor:pointer}.day-left{display:flex;gap:10px;align-items:flex-start;min-width:0;flex:1}.day-info{min-width:0}.day-chev{font-size:20px;line-height:1;margin-top:3px;color:var(--muted);font-weight:900}.day-body{margin-top:8px}.card.collapsed{padding-bottom:13px}.card.collapsed .day-body{display:none}.today-pill{font-size:11px;font-weight:900;background:#e8f1ff;color:#2457d6;border-radius:999px;padding:4px 8px;margin-left:6px}.day-title{font-size:19px;font-weight:850}.date{font-size:13px;color:var(--muted);font-weight:700}
 .day-progress{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:7px}
 .status-pill{font-size:11px;font-weight:850;border-radius:999px;padding:4px 8px;background:#f1f1ef;color:#555}
@@ -22,7 +22,7 @@ h1{font-size:34px;margin:0;font-weight:850;letter-spacing:-.04em}.pill{border:no
 .session{margin-top:10px;border-top:1px solid var(--line);padding:12px 0 2px}.session-title{font-weight:850;margin-bottom:4px;display:flex;align-items:center;gap:8px}.small{font-size:13px;color:var(--muted)}.session.run{border-left:4px solid #34c759;padding-left:10px}.session.weights{border-left:4px solid #007aff;padding-left:10px}.session.finisher{border-left:4px solid #ff2d55;padding-left:10px}.session.hyrox{border-left:4px solid #ff9500;padding-left:10px}.session.rest{border-left:4px solid #8e8e93;padding-left:10px}.typeIcon{width:28px;height:28px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:#f4f4f4;font-size:16px;flex:0 0 28px}.run .typeIcon{background:#e9f8ee}.weights .typeIcon{background:#eaf2ff}.finisher .typeIcon{background:#ffeaf1}.hyrox .typeIcon{background:#fff1df}.rest .typeIcon{background:#efeff1}.choice{border:none;background:transparent;padding:0;margin:0 0 6px}.choiceSummary{width:100%;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:850;font-size:16px;line-height:1.25;text-align:left;cursor:pointer}.choiceTitleWrap{display:flex;align-items:center;gap:8px;min-width:0}.choiceTitleWrap span:last-child{overflow-wrap:anywhere}.choiceSummary .chev{font-size:20px;color:var(--muted);line-height:1}.selectedDesc{font-size:13px;color:var(--muted);line-height:1.35;margin-top:5px;max-width:95%}.optionList{margin-top:10px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:white}.optionItem{width:100%;text-align:left;background:white;border:0;border-bottom:1px solid var(--line);padding:12px 14px;font-size:15px;line-height:1.28}.optionItem:last-child{border-bottom:0}.optionItem.active{background:#f6f2ea}.optTitle{font-weight:850;color:var(--text)}.optDesc{font-weight:500;color:var(--muted);margin-top:3px}.star{font-weight:850}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}.surfBtn{margin-left:auto}
 button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:9px 11px;font-weight:750;box-shadow:0 1px 0 rgba(0,0,0,.02)}.btn.done{background:#e9f6ee;border-color:#bfe7cc;color:#145f35}.btn.skip{background:#fff2f2;border-color:#ffd1d1;color:#9d2424}.btn.primary{background:#111;color:#fff;border-color:#111}.btn.blue{background:#eff4ff;border-color:#cfdcff;color:#224da8}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.form .wide{grid-column:1/-1}label{font-size:12px;color:var(--muted);font-weight:750;display:block;margin-bottom:4px}input,select,textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:13px;padding:10px;color:#111}textarea{min-height:62px;resize:vertical}
-.progress-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:8px 0 14px}.metric{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;text-align:center;position:relative;overflow:hidden}.metric:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:#34c759}.metric:nth-child(2):before{background:#007aff}.metric:nth-child(3):before{background:#ff2d55}.metric:nth-child(4):before{background:#12a594}.metric b{font-size:22px;display:block}.metric span{font-size:12px;color:var(--muted);font-weight:750}.metric .mi{display:block;font-size:15px;margin-bottom:2px}
+.progress-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:0}.metric{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;text-align:center;position:relative;overflow:hidden}.metric:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:#34c759}.metric:nth-child(2):before{background:#007aff}.metric:nth-child(3):before{background:#ff2d55}.metric:nth-child(4):before{background:#12a594}.metric b{font-size:22px;display:block}.metric span{font-size:12px;color:var(--muted);font-weight:750}.metric .mi{display:block;font-size:15px;margin-bottom:2px}
 .library details,.perf{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0}.perf summary{font-size:14px;color:#333}.perf[open] summary{margin-bottom:4px}summary{font-weight:850;font-size:17px}.libitem{padding:10px 0;border-top:1px solid var(--line)}.libitem:first-of-type{border-top:none}.muted{color:var(--muted)}.copybox{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px;font-size:13px}
 .counter{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.counter:first-child{border-top:none}.badge{min-width:34px;text-align:center;font-weight:900;border-radius:999px;padding:5px 9px;background:var(--soft)}
 .surfbox{border:1px solid var(--line);background:#fbfaf8;border-radius:16px;margin-top:10px;padding:11px}.footer-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:center;z-index:5}.footer-nav .inner{max-width:680px;width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.navbtn{border:none;border-radius:15px;padding:10px 4px;background:transparent;font-size:12px;font-weight:850;color:#555}.navbtn.active{background:#111;color:#fff}.hidden{display:none!important}.section-title{font-size:23px;font-weight:850;margin:16px 3px 10px;letter-spacing:-.02em}.hint{font-size:13px;color:var(--muted);margin:4px 3px 12px}.principles-text{font-size:15px;margin:0;color:#222;line-height:1.45}.principles-text ul{margin:10px 0 0 18px;padding:0}.principles-text li{margin:8px 0}.source-list{font-size:13px;color:var(--muted);line-height:1.45;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.summary-reset{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}.btn.danger{color:#9f1239;border-color:#ffd1dc;background:#fff7fa}.tiny{font-size:12px;margin-top:8px}
@@ -30,10 +30,9 @@ button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px 
 </head>
 <body>
 <div class="app">
-<header><div class="top"><h1>Hybrid Week</h1></div>
-<div class="tabs"><button class="tab active" onclick="showTab('plan')">📅 Plan</button><button class="tab" onclick="showTab('library')">📚 Library</button><button class="tab" onclick="showTab('counters')">📊 Counters</button><button class="tab" onclick="showTab('summary')">📝 Summary</button><button class="tab" onclick="showTab('principles')">⭐ Principles</button></div></header>
+<header><div class="top"><h1>Hybrid Week</h1></div></header>
 
-<main id="plan"><div class="weekbar" id="weekbar"></div><div class="progress-wrap" id="metrics"></div><div class="grid" id="weekGrid"></div></main>
+<main id="plan"><div class="weekTop"><div class="weekbar" id="weekbar"></div><div class="progress-wrap" id="metrics"></div></div><div class="grid" id="weekGrid"></div></main>
 
 <main id="library" class="hidden library"><div class="section-title">Workout Library</div><div class="hint">Most finishers are adapted from JK’s style: sustained EMOM/AMRAP work, 6–7/10 effort, Hyrox stations, no death-circuit ego.</div>
 <details open><summary>Runs</summary>
@@ -92,7 +91,7 @@ button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px 
   </div>
 </main>
 </div>
-<nav class="footer-nav"><div class="inner"><button class="navbtn active" onclick="showTab('plan')">📅<br>Plan</button><button class="navbtn" onclick="showTab('library')">📚<br>Library</button><button class="navbtn" onclick="showTab('counters')">📊<br>Counters</button><button class="navbtn" onclick="showTab('summary')">📝<br>Summary</button><button class="navbtn" onclick="showTab('principles')">⭐<br>Principles</button></div></nav>
+<nav class="footer-nav"><div class="inner"><button class="navbtn active" onclick="showTab('plan')">Plan</button><button class="navbtn" onclick="showTab('library')">Library</button><button class="navbtn" onclick="showTab('counters')">Counters</button><button class="navbtn" onclick="showTab('summary')">Summary</button><button class="navbtn" onclick="showTab('principles')">Principles</button></div></nav>
 
 <script>
 const KEY="hybridWeek.v14";
@@ -198,7 +197,24 @@ function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 function showTab(id){document.querySelectorAll("main").forEach(m=>m.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");document.querySelectorAll(".tab,.navbtn").forEach(b=>b.classList.remove("active"));document.querySelectorAll(".tab,.navbtn").forEach(b=>{let t=b.textContent.trim().toLowerCase();if(t.includes(id)||(id==="plan"&&t.includes("plan")))b.classList.add("active")});if(id==="summary")renderSummary();if(id==="counters")renderCounters()}
 function currentWeek(){return state.weeks[state.currentWeek]}
 function renderAll(){renderWeekbar();renderWeek();renderMetrics();renderCounters();renderSummary()}
-function renderWeekbar(){const el=document.getElementById("weekbar");el.innerHTML=state.weeks.map((w,i)=>`<button class="weekbtn ${i===state.currentWeek?"active":""}" onclick="state.currentWeek=${i};save();renderAll()">W${w.number}<br><span style="font-size:11px;font-weight:650">${shortDate(w.start)}</span></button>`).join("")}
+function renderWeekbar(){
+  const el=document.getElementById("weekbar");
+  const w=currentWeek();
+  el.innerHTML=`
+    <button class="weekPicker" type="button" onclick="toggleWeekMenu(event)" aria-label="Select week">
+      <div>
+        <div class="wMain">W${w.number}</div>
+        <div class="wDate">${shortDate(w.start)}</div>
+      </div>
+      <div class="wChevron">⌄</div>
+    </button>
+    <div class="weekMenu" id="weekMenu">
+      ${state.weeks.map((wk,i)=>`<button class="weekOption ${i===state.currentWeek?"active":""}" type="button" onclick="selectWeek(${i})">W${wk.number}<span>${shortDate(wk.start)}</span></button>`).join("")}
+    </div>`;
+}
+function toggleWeekMenu(e){e.stopPropagation();const m=document.getElementById("weekMenu");if(m)m.classList.toggle("open")}
+function selectWeek(i){state.currentWeek=Number(i);save();renderAll()}
+document.addEventListener("click",()=>{const m=document.getElementById("weekMenu");if(m)m.classList.remove("open")});
 function shortDate(s){const d=parseLocalDate(s);return d.toLocaleDateString("en-AU",{month:"short",day:"numeric"})}
 function tagClass(load){return load==="hard"?"hard":load==="rest"?"rest":"easy"}
 function escapeHtml(str){return String(str).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
@@ -318,4 +334,13 @@ function resetPlan(){if(confirm("This clears saved progress, notes, surf logs an
 renderAll();
 </script>
 </body>
-</html>
+</html
+@media(max-width:520px){
+  .weekTop{grid-template-columns:1fr;gap:8px}
+  .weekSelect{min-height:54px;text-align:left;padding-left:16px}
+  .progress-wrap{grid-template-columns:repeat(4,1fr)}
+  .metric{padding:9px 6px;border-radius:16px}
+  .metric b{font-size:18px}
+  .metric span{font-size:10px}
+}
+>
