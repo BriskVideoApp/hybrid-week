@@ -6,14 +6,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="Hybrid Week" />
 <meta name="theme-color" content="#f7f7f5" />
-<title>Hybrid Week Melbourne v32</title>
+<meta name="description" content="Tom's 13-week Hybrid Week training plan for HYROX Melbourne solo." />
+<title>Hybrid Week Melbourne v35</title>
 <style>
 :root{--bg:#f8f8f6;--card:#fff;--text:#151515;--muted:#6f6f72;--line:#e8e5df;--soft:#f2eee8;--green:#1f8f4d;--orange:#d9822b;--red:#cc3a3a;--blue:#2457d6;--pink:#f04f88;--purple:#8b5cf6;--teal:#12a594;--yellow:#f4b63f;--shadow:0 10px 28px rgba(30,30,30,.07);--radius:24px}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.35;-webkit-font-smoothing:antialiased}.app{max-width:680px;margin:0 auto;padding:18px 14px 92px}
-header{padding:10px 4px 16px;position:sticky;top:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);z-index:3}.top{display:flex;justify-content:space-between;gap:12px;align-items:center}
-h1{font-size:34px;margin:0;font-weight:850;letter-spacing:-.04em}.pill{border:none;border-radius:999px;padding:10px 13px;background:#111;color:#fff;font-weight:750;font-size:13px}
+header{padding:10px 4px 16px;position:sticky;top:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:3}.top{display:flex;justify-content:space-between;gap:12px;align-items:flex-end}
+h1{font-size:34px;margin:0;font-weight:850;letter-spacing:-.04em}.eyebrow{font-size:11px;line-height:1.2;text-transform:uppercase;letter-spacing:.11em;color:var(--muted);font-weight:900;margin-bottom:3px}.version{font-size:12px;font-weight:900;color:#fff;background:#111;border-radius:999px;padding:6px 9px;margin-bottom:4px}.pill{border:none;border-radius:999px;padding:10px 13px;background:#111;color:#fff;font-weight:750;font-size:13px}
 .tabs{display:flex;gap:8px;margin-top:16px;overflow:auto;padding-bottom:2px}.tab{border:none;border-radius:999px;background:var(--soft);padding:10px 14px;font-weight:750;color:#333;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(0,0,0,.02)}.tab.active{background:#111;color:#fff}
-.weekTop{display:grid;grid-template-columns:.95fr 4fr;gap:9px;align-items:stretch;margin:0 0 14px} .weekbar{min-width:0;position:relative;display:flex}.weekPicker{width:100%;height:100%;min-height:96px;border:0;background:#111;color:#fff;border-radius:20px;padding:12px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;text-align:center;cursor:pointer}.weekPicker .wMain{font-weight:900;font-size:22px;line-height:1}.weekPicker .wDate{font-size:12px;font-weight:800;opacity:.88;margin-top:8px}.weekPicker .wChevron{font-size:20px;font-weight:900;line-height:1;opacity:.9;align-self:center}.weekMenu{position:absolute;top:74px;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:6px;z-index:20;display:none}.weekMenu.open{display:block}.weekOption{width:100%;border:0;background:#fff;border-radius:13px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;text-align:left;font-weight:850}.weekOption span{color:var(--muted);font-size:12px;font-weight:800}.weekOption.active{background:#111;color:#fff}.weekOption.active span{color:#fff;opacity:.86}.weekbtn{border:1px solid var(--line);background:#fff;border-radius:15px;padding:9px 12px;font-weight:800;white-space:nowrap}.weekbtn.active{background:#111;color:#fff;border-color:#111}
+.weekTop{display:grid;grid-template-columns:.95fr 4fr;gap:9px;align-items:stretch;margin:0 0 14px} .weekbar{min-width:0;position:relative;display:flex}.weekPicker{width:100%;height:100%;min-height:96px;border:0;background:#111;color:#fff;border-radius:20px;padding:12px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;text-align:center;cursor:pointer}.weekPicker .wMain{font-weight:900;font-size:22px;line-height:1}.weekPicker .wDate{font-size:12px;font-weight:800;opacity:.88;margin-top:8px}.weekPicker .wChevron{font-size:20px;font-weight:900;line-height:1;opacity:.9;align-self:center}.weekMenu{position:absolute;top:74px;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:6px;z-index:20;display:none;max-height:62vh;overflow:auto}.weekMenu.open{display:block}.weekOption{width:100%;border:0;background:#fff;border-radius:13px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;text-align:left;font-weight:850}.weekOption span{color:var(--muted);font-size:12px;font-weight:800}.weekOption.active{background:#111;color:#fff}.weekOption.active span{color:#fff;opacity:.86}.weekbtn{border:1px solid var(--line);background:#fff;border-radius:15px;padding:9px 12px;font-weight:800;white-space:nowrap}.weekbtn.active{background:#111;color:#fff;border-color:#111}
 .weekIntent{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin:0 0 14px;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .weekIntent:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--blue)}
 .intentTop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
@@ -25,14 +26,14 @@ h1{font-size:34px;margin:0;font-weight:850;letter-spacing:-.04em}.pill{border:no
 .status-pill{font-size:11px;font-weight:850;border-radius:999px;padding:4px 8px;background:#f1f1ef;color:#555}
 .status-pill.done{background:#e9f8ee;color:#156b39}.status-pill.skip{background:#fff1df;color:#8a4300}.status-pill.surf{background:#e8f1ff;color:#2457d6}
 .tag{font-size:12px;font-weight:850;padding:5px 9px;border-radius:999px;background:var(--soft);color:#333}.tag.hard{background:#ffe7d2;color:#8a4300}.tag.easy{background:#e9f6ee;color:#156b39}.tag.rest{background:#ececec;color:#555}
-.session{margin-top:10px;border-top:1px solid var(--line);padding:12px 0 2px}.session-title{font-weight:850;margin-bottom:4px;display:flex;align-items:center;gap:8px}.small{font-size:13px;color:var(--muted)}.session.run{border-left:4px solid #34c759;padding-left:10px}.session.weights{border-left:4px solid #007aff;padding-left:10px}.session.finisher{border-left:4px solid #ff2d55;padding-left:10px}.session.hyrox{border-left:4px solid #ff9500;padding-left:10px}.session.rest{border-left:4px solid #8e8e93;padding-left:10px}.typeIcon{width:28px;height:28px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:#f4f4f4;font-size:16px;flex:0 0 28px}.run .typeIcon{background:#e9f8ee}.weights .typeIcon{background:#eaf2ff}.finisher .typeIcon{background:#ffeaf1}.hyrox .typeIcon{background:#fff1df}.rest .typeIcon{background:#efeff1}.choice{border:none;background:transparent;padding:0;margin:0 0 6px}.choiceSummary{width:100%;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:850;font-size:16px;line-height:1.25;text-align:left;cursor:pointer}.choiceTitleWrap{display:flex;align-items:center;gap:8px;min-width:0}.choiceTitleWrap span:last-child{overflow-wrap:anywhere}.choiceSummary .chev{font-size:20px;color:var(--muted);line-height:1}.selectedDesc{font-size:13px;color:var(--muted);line-height:1.35;margin-top:5px;max-width:95%}.optionList{margin-top:10px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:white}.optionItem{width:100%;text-align:left;background:white;border:0;border-bottom:1px solid var(--line);padding:12px 14px;font-size:15px;line-height:1.28}.optionItem:last-child{border-bottom:0}.optionItem.active{background:#f6f2ea}.optTitle{font-weight:850;color:var(--text)}.optDesc{font-weight:500;color:var(--muted);margin-top:3px}.star{font-weight:850}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}.surfBtn{margin-left:auto}
-button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:9px 11px;font-weight:750;box-shadow:0 1px 0 rgba(0,0,0,.02)}.btn.done{background:#e9f6ee;border-color:#bfe7cc;color:#145f35}.btn.skip{background:#fff2f2;border-color:#ffd1d1;color:#9d2424}.btn.primary{background:#111;color:#fff;border-color:#111}.btn.blue{background:#eff4ff;border-color:#cfdcff;color:#224da8}
+.session{margin-top:10px;border-top:1px solid var(--line);padding:12px 0 2px}.session-title{font-weight:850;margin-bottom:4px;display:flex;align-items:center;gap:8px}.small{font-size:13px;color:var(--muted)}.session.run{border-left:4px solid #34c759;padding-left:10px}.session.weights{border-left:4px solid #007aff;padding-left:10px}.session.finisher{border-left:4px solid #ff2d55;padding-left:10px}.session.hyrox{border-left:4px solid #ff9500;padding-left:10px}.session.rest{border-left:4px solid #8e8e93;padding-left:10px}.typeIcon{width:28px;height:28px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:#f4f4f4;font-size:16px;flex:0 0 28px}.run .typeIcon{background:#e9f8ee}.weights .typeIcon{background:#eaf2ff}.finisher .typeIcon{background:#ffeaf1}.hyrox .typeIcon{background:#fff1df}.rest .typeIcon{background:#efeff1}.choice{border:none;background:transparent;padding:0;margin:0 0 6px}.choiceSummary{width:100%;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:850;font-size:16px;line-height:1.25;text-align:left;cursor:pointer}.choiceTitleWrap{display:flex;align-items:center;gap:8px;min-width:0}.choiceTitleWrap span:last-child{overflow-wrap:anywhere}.choiceSummary .chev{font-size:20px;color:var(--muted);line-height:1}.selectedDesc{font-size:13px;color:var(--muted);line-height:1.35;margin-top:5px;max-width:95%}.optionList{margin-top:10px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:white}.optionItem{width:100%;text-align:left;background:white;border:0;border-bottom:1px solid var(--line);padding:12px 14px;font-size:15px;line-height:1.28}.optionItem:last-child{border-bottom:0}.optionItem.active{background:#f6f2ea}.optTitle{font-weight:850;color:var(--text)}.optDesc{font-weight:500;color:var(--muted);margin-top:3px}.star{font-weight:850}.session-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.mini-pill{font-size:10px;line-height:1;font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:5px 7px;border-radius:999px;background:#f3efff;color:#6941c6}.mini-pill.moved{background:#fff1df;color:#8a4300}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}.surfBtn{margin-left:auto}
+button,select,input,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}.btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:9px 11px;min-height:42px;font-weight:750;box-shadow:0 1px 0 rgba(0,0,0,.02)}.btn.done{background:#e9f6ee;border-color:#bfe7cc;color:#145f35}.btn.skip{background:#fff2f2;border-color:#ffd1d1;color:#9d2424}.btn.primary{background:#111;color:#fff;border-color:#111}.btn.blue{background:#eff4ff;border-color:#cfdcff;color:#224da8}.btn.move{background:#fff8ec;border-color:#f3d4a6;color:#7a4600}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.form .wide{grid-column:1/-1}label{font-size:12px;color:var(--muted);font-weight:750;display:block;margin-bottom:4px}input,select,textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:13px;padding:10px;color:#111}textarea{min-height:62px;resize:vertical}
 .progress-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:0}.metric{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;text-align:center;position:relative;overflow:hidden}.metric:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:#34c759}.metric:nth-child(2):before{background:#007aff}.metric:nth-child(3):before{background:#ff2d55}.metric:nth-child(4):before{background:#12a594}.metric b{font-size:22px;display:block}.metric span{font-size:12px;color:var(--muted);font-weight:750}.metric .mi{display:block;font-size:15px;margin-bottom:2px}
 .library details,.perf{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0}.perf summary{font-size:14px;color:#333}.perf[open] summary{margin-bottom:4px}summary{font-weight:850;font-size:17px}.libitem{padding:10px 0;border-top:1px solid var(--line)}.libitem:first-of-type{border-top:none}.muted{color:var(--muted)}.copybox{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px;font-size:13px}
 .imageTools{margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
 .imageRow{display:flex;gap:8px;align-items:stretch}
-.imageDrop{flex:1;border:1px dashed #cfd3da;border-radius:14px;padding:10px 12px;background:#fbfcff;color:var(--muted);font-size:13px;outline:none;display:flex;align-items:center;min-height:42px}
+.imageDrop{flex:1;border:1px dashed #cfd3da;border-radius:14px;padding:10px 12px;background:#fbfcff;color:var(--muted);font-size:13px;outline:none;display:flex;align-items:center;min-height:42px;cursor:pointer;caret-color:transparent;white-space:nowrap;overflow:hidden}
 .imageDrop:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,87,214,.12)}
 .fileBtn{display:inline-flex;align-items:center;gap:6px;margin-top:0;min-height:42px;white-space:nowrap}
 .fileBtn input{display:none}
@@ -42,16 +43,19 @@ button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px 
 .imagePreview button{position:absolute;top:8px;right:8px;border:0;background:rgba(0,0,0,.72);color:#fff;border-radius:999px;width:30px;height:30px;font-weight:900;line-height:26px;font-size:18px}
 .metric{cursor:pointer}
 .counter{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.counter:first-child{border-top:none}.badge{min-width:34px;text-align:center;font-weight:900;border-radius:999px;padding:5px 9px;background:var(--soft)}
-.surfbox{border:1px solid var(--line);background:#fbfaf8;border-radius:16px;margin-top:10px;padding:11px}.footer-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:center;z-index:5}.footer-nav .inner{max-width:680px;width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.navbtn{border:none;border-radius:15px;padding:10px 4px;background:transparent;font-size:12px;font-weight:850;color:#555}.navbtn.active{background:#111;color:#fff}.hidden{display:none!important}.section-title{font-size:23px;font-weight:850;margin:16px 3px 10px;letter-spacing:-.02em}.hint{font-size:13px;color:var(--muted);margin:4px 3px 12px}.principles-text{font-size:15px;margin:0;color:#222;line-height:1.45}.principles-text ul{margin:10px 0 0 18px;padding:0}.principles-text li{margin:8px 0}.source-list{font-size:13px;color:var(--muted);line-height:1.45;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.summary-reset{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}.btn.danger{color:#9f1239;border-color:#ffd1dc;background:#fff7fa}.tiny{font-size:12px;margin-top:8px}
+.surfbox{border:1px solid var(--line);background:#fbfaf8;border-radius:16px;margin-top:10px;padding:11px}.footer-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,247,245,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:center;z-index:5}.footer-nav .inner{max-width:680px;width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.navbtn{border:none;border-radius:15px;padding:10px 4px;min-height:44px;background:transparent;font-size:12px;font-weight:850;color:#555}.navbtn.active{background:#111;color:#fff}.hidden{display:none!important}.section-title{font-size:23px;font-weight:850;margin:16px 3px 10px;letter-spacing:-.02em}.hint{font-size:13px;color:var(--muted);margin:4px 3px 12px}.principles-text{font-size:15px;margin:0;color:#222;line-height:1.45}.principles-text ul{margin:10px 0 0 18px;padding:0}.principles-text li{margin:8px 0}.source-list{font-size:13px;color:var(--muted);line-height:1.45;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}.summary-reset{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}.btn.danger{color:#9f1239;border-color:#ffd1dc;background:#fff7fa}.tiny{font-size:12px;margin-top:8px}.toast{position:fixed;left:50%;bottom:calc(82px + env(safe-area-inset-bottom));transform:translate(-50%,12px);max-width:calc(100vw - 28px);background:#111;color:#fff;padding:11px 14px;border-radius:14px;font-size:13px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:.2s ease;z-index:30}.toast.show{opacity:1;transform:translate(-50%,0)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,.imageDrop:focus-visible{outline:3px solid rgba(36,87,214,.32);outline-offset:2px}
+@media(max-width:430px){.app{padding:12px 10px 92px}header{padding-top:8px}.weekTop{grid-template-columns:82px minmax(0,1fr);gap:7px}.weekPicker{padding:9px;min-height:91px;border-radius:18px}.progress-wrap{gap:5px}.metric{padding:10px 3px;border-radius:17px}.metric b{font-size:18px}.metric span{font-size:10px}.card{padding:14px;border-radius:21px}.footer-nav{padding-left:6px;padding-right:6px}.footer-nav .inner{gap:3px}.navbtn{font-size:11px}.imageRow{align-items:stretch}.fileBtn{padding-left:9px;padding-right:9px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.toast{transition:none}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div class="top"><h1>Hybrid Week</h1></div></header>
+<header><div class="top"><div><div class="eyebrow">Melbourne solo · 12 Dec</div><h1>Hybrid Week</h1></div><div class="version">v35</div></div></header>
 
 <main id="plan"><div class="weekTop"><div class="weekbar" id="weekbar"></div><div class="progress-wrap" id="metrics"></div></div><div class="weekIntent" id="weekIntent"></div><div class="grid" id="weekGrid"></div></main>
 
-<main id="library" class="hidden library"><div class="section-title">Workout Library</div><div class="hint">This is the 70% Melbourne version: JK structure, your time cap, F45 lifestyle, no junk fatigue.</div>
+<main id="library" class="hidden library"><div class="section-title">Workout Library</div><div class="hint">13 weeks from Sept 12: JK structure at about 70%, capped at 60–90 minutes on 5–6 days each week.</div>
 <details open><summary>Runs</summary>
 <div class="libitem"><b>Threshold blocks</b><br><span class="muted">2 km easy warm-up, controlled threshold reps, easy cool-down. Respect the pace. Not a time trial.</span></div>
 <div class="libitem"><b>Speed play</b><br><span class="muted">400 m to 1000 m repeats around 10 km pace. Smooth, fast, repeatable. Stop chasing pace if form drops.</span></div>
@@ -67,6 +71,10 @@ button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px 
 <div class="libitem"><b>Lunge / carry</b><br><span class="muted">Sandbag lunges, farmer carries, sled pulls. Brace, breathe, keep steps controlled.</span></div>
 <div class="libitem"><b>Burpee rhythm</b><br><span class="muted">Burpees or BBJ mixed with ski/row/run. Smooth floor breathing. No panic reps.</span></div></details>
 
+<details open><summary>Friday rule</summary>
+<div class="libitem"><b>Complement, do not compete</b><br><span class="muted">Friday pairs F45 or easy aerobic with one 15–20 min finisher that fills a station gap left by Monday and Wednesday. After a hard Thursday, keep it controlled so Saturday’s long run stays easy and useful.</span></div>
+<div class="libitem"><b>Event and taper weeks</b><br><span class="muted">The Friday slot becomes recovery aerobic after Half Rox, a short recovery touch eight days out, and an optional 8–12 min primer on race eve.</span></div></details>
+
 <details open><summary>Key events</summary>
 <div class="libitem"><b>Oct 25 Half Rox</b><br><span class="muted">B-race simulation. No peak. Use it to test pacing, stations, HR, fuel and composure.</span></div>
 <div class="libitem"><b>Final 10 days</b><br><span class="muted">JK taper structure: half simulation, easy runs, short sharp conditioning, mobility, then race-day warm-up.</span></div>
@@ -76,7 +84,7 @@ button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px 
 <main id="counters" class="hidden"><div class="section-title">Counters</div><div class="card"><div class="session-title">Finishers completed</div><div id="finisherCounts"></div></div><div style="height:12px"></div><div class="card"><div class="session-title">Hyrox simulations</div><div id="simulationCounts"></div></div><div style="height:12px"></div><div class="card"><div class="session-title">Surf tally</div><div id="surfCounts"></div></div></main>
 
 
-<main id="summary" class="hidden"><div class="section-title">Weekly Summary</div><div class="hint">Copy this into ChatGPT for coaching adjustments.</div><button class="btn primary" onclick="copySummary()">Copy summary</button><button class="btn" onclick="renderSummary()">Refresh</button><div style="height:12px"></div><div class="copybox" id="summaryBox"></div><div class="summary-reset"><button class="btn danger" onclick="resetPlan()">Reset data</button><div class="hint tiny">Clears saved progress, notes, surf logs and selections. The built-in 8-week plan stays.</div></div></main>
+<main id="summary" class="hidden"><div class="section-title">Weekly Summary</div><div class="hint">Copy this into ChatGPT for coaching adjustments.</div><button class="btn primary" onclick="copySummary()">Copy summary</button><button class="btn" onclick="renderSummary()">Refresh</button><div style="height:12px"></div><div class="copybox" id="summaryBox"></div><div class="summary-reset"><button class="btn danger" onclick="resetPlan()">Reset data</button><div class="hint tiny">Clears saved progress, notes, images, surf logs and selections. The built-in 13-week plan stays.</div></div></main>
 
 <main id="principles" class="hidden">
   <div class="section-title">Training Principles</div>
@@ -87,7 +95,7 @@ button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px 
         <li><b>Dec 12 is the A-race.</b> Everything points there.</li>
         <li><b>Oct 25 Half Rox is a simulation.</b> Race it, learn from it, then keep building.</li>
         <li><b>Use JK’s structure at 70%.</b> Keep the best sessions. Cut duplicate volume.</li>
-        <li><b>Train 60–90 minutes most days.</b> More is not better if it buries you.</li>
+        <li><b>Train 60–90 minutes on 5–6 days.</b> Friday is the controlled sixth day: F45 or easy aerobic plus one complementary finisher.</li>
         <li><b>Three stress points.</b> Quality run, Thursday F45 Hyrox class, long easy run.</li>
         <li><b>Easy volume stays easy.</b> This builds your engine and protects your calf.</li>
         <li><b>Finishers are specific.</b> Row, ski, wall balls, sleds, lunges, carries, burpees, DB overhead.</li>
@@ -105,9 +113,12 @@ button,select,input,textarea{font:inherit}button{cursor:pointer}.btn{border:1px 
 </main>
 </div>
 <nav class="footer-nav"><div class="inner"><button class="navbtn active" onclick="showTab('plan')">Plan</button><button class="navbtn" onclick="showTab('library')">Library</button><button class="navbtn" onclick="showTab('counters')">Counters</button><button class="navbtn" onclick="showTab('summary')">Summary</button><button class="navbtn" onclick="showTab('principles')">Principles</button></div></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const KEY="hybridWeek.melbourne.v28";
+const VERSION=35;
+const KEY=`hybridWeek.melbourne.v${VERSION}`;
+const LEGACY_KEYS=[34,33,32,31,30,29,28].map(v=>`hybridWeek.melbourne.v${v}`);
 const startDateStr="2026-09-12";
 const raceDateStr="2026-12-12";
 
@@ -158,6 +169,8 @@ const workoutInfo={
   "Long easy 60–75 min":{title:"Long easy run",desc:"Run 60–75 min easy. Keep it conversational. This is your aerobic base and durability work. No tempo creep."},
   "Recovery run 25–45 min":{title:"Recovery run",desc:"Run 25–45 min very easy. This adds volume without adding much stress. Finish fresher than you started."},
   "Race-week easy run + strides":{title:"Easy run + strides",desc:"Run easy, then add relaxed strides. Keep it light, sharp and short. The goal is rhythm, not fitness."},
+  "Taper easy 30–40 min":{title:"Taper easy run",desc:"Run 30–40 min conversationally. Add 4 relaxed 15-second strides only if the legs feel good."},
+  "Shakeout 20–30 min + strides":{title:"Shakeout + strides",desc:"Run 20–30 min very easy, then 4 short relaxed strides with full recovery. Finish feeling sharper than you started."},
 
   "Engine EMOM 20–24 min":{title:"Engine EMOM",desc:"Repeat 5–6 rounds: min 1 row calories, min 2 ski calories, min 3 wall balls, min 4 bike or rest. Choose targets you finish in about 40 sec. Hold 7/10."},
   "Overhead Support 15–18 min":{title:"Overhead Support",desc:"Every 2 min for 16–20 min: 9 DB push press, 6 DB front squat, 3 devil press. Use moderate DBs. Smooth reps, legs drive, no shoulder grind."},
@@ -168,13 +181,16 @@ const workoutInfo={
   "Burpee Broad Jump Rhythm 15–20 min":{title:"Burpee Rhythm",desc:"AMRAP 15–20 min: 200–400 m run or 250 m ski, 20–40 m burpee broad jump, 10–20 wall balls. Breathe on the floor and landing."},
   "Continuous Clock Lite 25 min":{title:"Continuous Clock Lite",desc:"10 min easy AMRAP row/ski + squats, rest 2–3 min, then 3 rounds of 500 m row or ski plus lunges/carry/wall balls. Controlled, not a test."},
   "Recovery Aerobic 20–30 min":{title:"Recovery Aerobic",desc:"20–30 min easy bike, row or ski. Keep HR low. Add mobility or core if fresh. This should help recovery, not steal it."},
+  "Race-eve reset 8–12 min":{title:"Race-eve reset",desc:"8–12 min only: very easy bike or row, then brief mobility and two relaxed sets of five wall balls. Stop feeling fresh. Skip it if rest feels better."},
+  "Taper station primer 30–40 min":{title:"Station primer",desc:"Easy 30–40 min total: brief ski and row, light sled technique, easy lunges, then 2–3 small wall-ball sets. Never grind."},
+  "Mobility / walk 20–30 min":{title:"Mobility / walk",desc:"Optional 20–30 min easy walk and mobility. Keep it restorative and stop if it feels like training."},
 
-  "F45 weights":{title:"F45 weights",desc:"Strength base. Keep good positions and controlled effort. If the class gets too spicy, remove the finisher."},
+  "F45 weights":{title:"F45 weights",desc:"Strength base for 45–60 min. Keep good positions and controlled effort. If the class gets too spicy, remove the finisher."},
   "Hyrox specific F45 class":{title:"Hyrox specific F45 class",desc:"This is your weekly compromised Hyrox exposure. Run, row, ski and stations under fatigue. Track RPE and notes. No extra redline work after."},
   "Half Rox simulation race":{title:"Half Rox simulation race",desc:"Oct 25. Treat this as a B-race benchmark, not a peak. Test pacing, stations, HR, fuel and composure. Recover properly after."},
   "Full rest":{title:"Full rest",desc:"No training. Walk is fine. Surf only if it is genuinely easy."},
   "Easy movement / surf":{title:"Easy movement / surf",desc:"Optional easy surf, walk or mobility. Keep it recovery-based unless the plan says otherwise."},
-  "Taper half simulation":{title:"Taper half simulation",desc:"10 days out. Do a hard but controlled half-HYROX style test. Learn pacing, do not bury yourself. Then the taper begins."},
+  "Taper half simulation":{title:"Taper half simulation",desc:"10 days out. Do a 45–60 min hard but controlled half-HYROX style test. Learn pacing, do not bury yourself. Then the taper begins."},
   "Race day":{title:"Race day",desc:"Melbourne HYROX solo. Warm up outside if possible. Keep early running controlled. Fuel as rehearsed. No hero start."}
 };
 
@@ -194,8 +210,8 @@ function phaseForWeek(w){
   if(w<=6)return "Road build";
   if(w===7)return "Half Rox benchmark";
   if(w<=11)return "Race-specific build";
-  if(w===12)return "Deload + taper starts";
-  return "Taper + race";
+  if(w===12)return "Sharpen + taper starts";
+  return "Final taper + race";
 }
 
 const qualityByWeek={
@@ -219,46 +235,69 @@ const monFinisherByWeek={
 const wedFinisherByWeek={
   1:"Overhead Support 15–18 min",2:"Lunge / Carry Block 20 min",3:"Overhead Support 15–18 min",4:"Sled Push / Bike 15–20 min",5:"Wall-ball Row-Ski Ladder 15–25 min",6:"Continuous Clock Lite 25 min",7:"Recovery Aerobic 20–30 min",8:"Overhead Support 15–18 min",9:"Sled Push / Bike 15–20 min",10:"Burpee Broad Jump Rhythm 15–20 min",11:"Continuous Clock Lite 25 min",12:"Taper half simulation",13:"Recovery Aerobic 20–30 min"
 };
+const friFinisherByWeek={
+  1:"Recovery Aerobic 20–30 min",
+  2:"Sled Pull / Ski 15–20 min",
+  3:"Wall-ball Row-Ski Ladder 15–25 min",
+  4:"Recovery Aerobic 20–30 min",
+  5:"Lunge / Carry Block 20 min",
+  6:"Recovery Aerobic 20–30 min",
+  7:"Recovery Aerobic 20–30 min",
+  8:"Sled Pull / Ski 15–20 min",
+  9:"Wall-ball Row-Ski Ladder 15–25 min",
+  10:"Engine EMOM 20–24 min",
+  11:"Overhead Support 15–18 min",
+  12:"Recovery Aerobic 20–30 min",
+  13:"Race-eve reset 8–12 min"
+};
 
 function baseDay(dayName,dt,w){
   const date=iso(dt);
   // Half Rox weekend
-  if(date==="2026-10-24") return makeDay(dayName,dt,"easy",[makeSession("Primer / rest","Easy movement / surf"),makeSession("Optional mobility","Recovery Aerobic 20–30 min",{finisher:true})]);
-  if(date==="2026-10-25") return makeDay(dayName,dt,"hard",[makeSession("Half Rox simulation race","Half Rox simulation race",{hyrox:true,simulation:true,run:true})]);
-  if(date==="2026-10-26") return makeDay(dayName,dt,"easy",[makeSession("Post-race recovery","Recovery Aerobic 20–30 min")]);
+  if(date==="2026-10-24") return makeDay(dayName,dt,"easy",[makeSession("Primer / rest","Easy movement / surf",{optional:true,minutes:"20–30 min"})]);
+  if(date==="2026-10-25") return makeDay(dayName,dt,"hard",[makeSession("Half Rox simulation race","Half Rox simulation race",{hyrox:true,simulation:true,run:true,minutes:"Race"})]);
+  if(date==="2026-10-26") return makeDay(dayName,dt,"rest",[makeSession("Post-race recovery","Full rest",{minutes:"Rest"})]);
+  if(date==="2026-10-27") return makeDay(dayName,dt,"easy",[makeSession("Recovery run","Recovery run 25–45 min",{run:true,minutes:"25–35 min"})]);
+  if(date==="2026-10-28") return makeDay(dayName,dt,"easy",[makeSession("Light F45 weights","F45 weights",{minutes:"45–60 min"})]);
+  if(date==="2026-10-29") return makeDay(dayName,dt,"easy",[makeSession("Hyrox specific F45 class","Hyrox specific F45 class",{hyrox:true,minutes:"60 min · cap RPE 7"})]);
+  if(date==="2026-10-30") return makeDay(dayName,dt,"easy",[makeSession("Friday recovery finisher","Recovery Aerobic 20–30 min",{finisher:true,fridayDefault:true,locked:true,minutes:"20–30 min · easy"})]);
+
+  // Sharpen before the final 10-day taper
+  if(date==="2026-11-28") return makeDay(dayName,dt,"easy",[makeSession("Reduced long easy run","Long easy 60–75 min",{run:true,minutes:"55–65 min"})]);
+  if(date==="2026-11-29") return makeDay(dayName,dt,"rest",[makeSession("Full rest","Full rest",{minutes:"Rest"})]);
+  if(date==="2026-11-30") return makeDay(dayName,dt,"easy",[makeSession("Light F45 weights","F45 weights",{minutes:"45–55 min"}),makeSession("Optional station rhythm","Recovery Aerobic 20–30 min",{finisher:true,optional:true,movable:true,minutes:"15–20 min"})]);
+  if(date==="2026-12-01") return makeDay(dayName,dt,"easy",[makeSession("Simulation primer","Race-week easy run + strides",{run:true,minutes:"25–35 min"})]);
 
   // Final 10 days and race day
-  if(date==="2026-12-02") return makeDay(dayName,dt,"hard",[makeSession("Taper half simulation","Taper half simulation",{hyrox:true,simulation:true,run:true})]);
-  if(date==="2026-12-03") return makeDay(dayName,dt,"easy",[makeSession("Easy run + strides","Race-week easy run + strides",{run:true}),makeSession("Light strength","F45 weights")]);
-  if(date==="2026-12-04") return makeDay(dayName,dt,"hard",[makeSession("Strength running","Strength Running 10 x 400 m uphill",{run:true}),makeSession("Short continuous clock","Continuous Clock Lite 25 min",{finisher:true})]);
-  if(date==="2026-12-05") return makeDay(dayName,dt,"rest",[makeSession("Active recovery / full rest","Full rest")]);
-  if(date==="2026-12-06") return makeDay(dayName,dt,"easy",[makeSession("Easy run","Recovery run 25–45 min",{run:true}),makeSession("Short conditioning","Continuous Clock Lite 25 min",{finisher:true})]);
-  if(date==="2026-12-07") return makeDay(dayName,dt,"hard",[makeSession("Short threshold touch","Threshold 6 x 5 min",{run:true}),makeSession("Light station rhythm","Burpee Broad Jump Rhythm 15–20 min",{finisher:true})]);
-  if(date==="2026-12-08") return makeDay(dayName,dt,"easy",[makeSession("Easy run","Recovery run 25–45 min",{run:true}),makeSession("Short ski conditioning","Recovery Aerobic 20–30 min",{finisher:true})]);
-  if(date==="2026-12-09") return makeDay(dayName,dt,"easy",[makeSession("Easy run","Recovery run 25–45 min",{run:true}),makeSession("Overhead support","Overhead Support 15–18 min",{finisher:true})]);
-  if(date==="2026-12-10") return makeDay(dayName,dt,"easy",[makeSession("Easy run + mobility","Race-week easy run + strides",{run:true})]);
-  if(date==="2026-12-11") return makeDay(dayName,dt,"easy",[makeSession("Shakeout","Race-week easy run + strides",{run:true}),makeSession("Mobilise / stretch","Easy movement / surf")]);
-  if(date==="2026-12-12") return makeDay(dayName,dt,"hard",[makeSession("Race day","Race day",{hyrox:true,simulation:true,run:true})]);
+  if(date==="2026-12-02") return makeDay(dayName,dt,"hard",[makeSession("Taper half simulation","Taper half simulation",{hyrox:true,simulation:true,run:true,minutes:"45–60 min"})]);
+  if(date==="2026-12-03") return makeDay(dayName,dt,"easy",[makeSession("Recovery mobility / walk","Mobility / walk 20–30 min",{optional:true,minutes:"20–30 min"})]);
+  if(date==="2026-12-04") return makeDay(dayName,dt,"easy",[makeSession("Taper easy run","Taper easy 30–40 min",{run:true,minutes:"30–40 min"}),makeSession("Friday recovery finisher","Recovery Aerobic 20–30 min",{finisher:true,fridayDefault:true,locked:true,minutes:"15–20 min · easy"})]);
+  if(date==="2026-12-05") return makeDay(dayName,dt,"rest",[makeSession("Full rest","Full rest",{minutes:"Rest"})]);
+  if(date==="2026-12-06") return makeDay(dayName,dt,"easy",[makeSession("Light station primer","Taper station primer 30–40 min",{hyrox:true,finisher:true,minutes:"30–40 min"})]);
+  if(date==="2026-12-07") return makeDay(dayName,dt,"easy",[makeSession("Easy run","Taper easy 30–40 min",{run:true,minutes:"30–40 min"})]);
+  if(date==="2026-12-08") return makeDay(dayName,dt,"easy",[makeSession("Short conditioning touch","Continuous Clock Lite 25 min",{finisher:true,minutes:"20–25 min · RPE 6"})]);
+  if(date==="2026-12-09") return makeDay(dayName,dt,"rest",[makeSession("Full rest / mobility","Full rest",{minutes:"Rest"})]);
+  if(date==="2026-12-10") return makeDay(dayName,dt,"easy",[makeSession("Shakeout + strides","Shakeout 20–30 min + strides",{run:true,minutes:"20–30 min"})]);
+  if(date==="2026-12-11") return makeDay(dayName,dt,"easy",[makeSession("Optional race-eve finisher","Race-eve reset 8–12 min",{finisher:true,fridayDefault:true,locked:true,optional:true,minutes:"8–12 min only"})]);
+  if(date==="2026-12-12") return makeDay(dayName,dt,"hard",[makeSession("Race day","Race day",{hyrox:true,simulation:true,run:true,minutes:"Race"})]);
 
   // Standard weekly structure
-  if(dayName==="Sat") return makeDay(dayName,dt,"easy",[makeSession("Long easy run","Long easy 60–75 min",{run:true})]);
-  if(dayName==="Sun") return makeDay(dayName,dt,"rest",[makeSession("Full rest","Full rest")]);
+  if(dayName==="Sat") return makeDay(dayName,dt,"easy",[makeSession("Long easy run","Long easy 60–75 min",{run:true,minutes:"60–75 min"})]);
+  if(dayName==="Sun") return makeDay(dayName,dt,"rest",[makeSession("Full rest","Full rest",{minutes:"Rest"})]);
   if(dayName==="Mon") return makeDay(dayName,dt,"easy",[
-    makeSession("F45 weights","F45 weights"),
-    makeSession("Easy run","Recovery run 25–45 min",{run:true}),
-    makeSession("JK-style finisher",monFinisherByWeek[w]||"Engine EMOM 20–24 min",{finisher:true})
+    makeSession("F45 weights","F45 weights",{minutes:"45–60 min"}),
+    makeSession("JK-style finisher",monFinisherByWeek[w]||"Engine EMOM 20–24 min",{finisher:true,movable:true,minutes:"15–20 min"})
   ]);
-  if(dayName==="Tue") return makeDay(dayName,dt,"hard",[makeSession("Quality run",qualityByWeek[w]||"Threshold 6 x 5 min",{run:true})]);
+  if(dayName==="Tue") return makeDay(dayName,dt,"hard",[makeSession("Quality run",qualityByWeek[w]||"Threshold 6 x 5 min",{run:true,minutes:"60–75 min"})]);
   if(dayName==="Wed") return makeDay(dayName,dt,"easy",[
-    makeSession("F45 weights","F45 weights"),
-    makeSession("JK-style finisher",wedFinisherByWeek[w]||"Overhead Support 15–18 min",{finisher:true})
+    makeSession("F45 weights","F45 weights",{minutes:"45–60 min"}),
+    makeSession("Optional JK-style finisher",wedFinisherByWeek[w]||"Overhead Support 15–18 min",{finisher:true,optional:true,movable:true,minutes:"15–20 min"})
   ]);
-  if(dayName==="Thu") return makeDay(dayName,dt,"hard",[makeSession("Hyrox specific F45 class","Hyrox specific F45 class",{hyrox:true})]);
-  if(dayName==="Fri"){
-    const sessions=[makeSession("F45 weights / easy aerobic","F45 weights")];
-    if(w>=3 && w!==12) sessions.push(makeSession("Optional light station work","Recovery Aerobic 20–30 min",{finisher:true}));
-    return makeDay(dayName,dt,"easy",sessions);
-  }
+  if(dayName==="Thu") return makeDay(dayName,dt,"hard",[makeSession("Hyrox specific F45 class","Hyrox specific F45 class",{hyrox:true,minutes:"60 min"})]);
+  if(dayName==="Fri") return makeDay(dayName,dt,"easy",[
+    makeSession("F45 weights / easy aerobic","F45 weights",{minutes:"45–60 min"}),
+    makeSession("Friday JK-style finisher",friFinisherByWeek[w]||"Recovery Aerobic 20–30 min",{finisher:true,fridayDefault:true,locked:w===6,minutes:w===6?"15–20 min · easy":"15–20 min"})
+  ]);
   return makeDay(dayName,dt,"easy",[]);
 }
 
@@ -275,7 +314,7 @@ const weekIntentions={
   9:{title:"Week 9 focus",text:"This is a more race-specific block. Keep the easy run and long run, but make Thursday Hyrox class and finishers look more like race demands: run, row, ski, wall balls, lunges, carries and sleds. Stay smooth. The goal is repeatable output, not one heroic session."},
   10:{title:"Week 10 focus",text:"This is the final hard build week. Keep three meaningful stressors only: quality run, Thursday Hyrox class and long easy run. Finishers should sharpen station durability without burying you. If fatigue is high, cut volume before intensity. Melbourne fitness comes from absorbed work."},
   11:{title:"Week 11 focus",text:"Sharpen now. This week should feel specific but not reckless. Use one bigger simulation-style exposure, then pull back slightly. Practise race pacing, fuelling, transitions and staying calm when breathing gets heavy. No new movements. No soreness chasing."},
-  12:{title:"Week 12 focus",text:"Taper begins during this week. Keep some intensity touches, but reduce total work. The aim is to feel springy, not lazy. Move, fuel, hydrate and sleep. Avoid anything that creates deep soreness. You are preserving fitness now, not building it."},
+  12:{title:"Week 12 focus",text:"Sharpen early, then start the final 10-day taper with the controlled half simulation on Dec 2. Volume falls immediately after it. Move, fuel, hydrate and sleep. Avoid anything that creates deep soreness. You are preserving fitness now, not building it."},
   13:{title:"Race week focus",text:"Freshen up for Melbourne. Short easy runs, light movement, mobility and confidence. Keep the body awake but never drained. Practise your warm-up and fuelling. The only workout that matters this week is race day. Arrive calm, fuelled and ready to execute."}
 };
 
@@ -303,19 +342,83 @@ function weekIndexForDate(weeks){
   return weeks.length-1;
 }
 function normalizeState(st){
-  st.weeks.forEach(w=>w.days.forEach(d=>d.sessions.forEach(s=>{
+  (st.weeks||[]).forEach(w=>w.days.forEach(d=>d.sessions.forEach(s=>{
     if((s.run||s.finisher) && !s.recommended) s.recommended=s.detail;
   })));
   return st;
 }
-function load(){
-  const raw=localStorage.getItem(KEY);
-  if(raw){try{return normalizeState(JSON.parse(raw))}catch(e){}}
+function sessionDataKind(s){
+  if(s.simulation)return"simulation";
+  if(s.finisher)return"finisher";
+  if(s.run)return"run";
+  if(s.hyrox)return"hyrox";
+  if(/rest/.test(((s.name||"")+" "+(s.detail||"")).toLowerCase()))return"rest";
+  return"weights";
+}
+function sessionWasUsed(s){
+  return !!(s.legacy||s.done||s.skipped||s.movedToFriday||s.rpe||s.hr||s.maxhr||s.pace||s.notes||(s.images&&s.images.length)||(s.recommended&&s.detail!==s.recommended));
+}
+function copySessionData(target,source){
+  ["done","skipped","rpe","hr","maxhr","pace","notes","images","perfOpen","detail","recommended","movedToFriday"].forEach(k=>{
+    if(Object.prototype.hasOwnProperty.call(source,k))target[k]=source[k];
+  });
+}
+function hydrateState(saved){
   const weeks=buildPlan();
-  return normalizeState({currentWeek:weekIndexForDate(weeks),weeks,openDays:{}});
+  const fresh={currentWeek:weekIndexForDate(weeks),weeks,openDays:{}};
+  if(!saved||!Array.isArray(saved.weeks))return normalizeState(fresh);
+  normalizeState(saved);
+  fresh.currentWeek=Math.max(0,Math.min(weeks.length-1,Number(saved.currentWeek)||0));
+  fresh.openDays=saved.openDays&&typeof saved.openDays==="object"?saved.openDays:{};
+  fresh.weeks.forEach(w=>w.days.forEach(d=>{
+    const oldDay=saved.weeks.flatMap(x=>x.days||[]).find(x=>x.date===d.date);
+    if(!oldDay)return;
+    if(oldDay.surf)d.surf=oldDay.surf;
+    const oldSessions=oldDay.sessions||[],used=new Set();
+    d.sessions.forEach(target=>{
+      let idx=oldSessions.findIndex((s,i)=>!used.has(i)&&s.name===target.name);
+      if(idx<0)idx=oldSessions.findIndex((s,i)=>!used.has(i)&&sessionWasUsed(s)&&sessionDataKind(s)===sessionDataKind(target));
+      if(idx>=0){copySessionData(target,oldSessions[idx]);used.add(idx)}
+    });
+    oldSessions.forEach((s,i)=>{
+      if(!used.has(i)&&sessionWasUsed(s))d.sessions.push({...s,legacy:true,movable:false});
+    });
+  }));
+  fresh.weeks.forEach(w=>{if(!weekAllowsFridaySwap(w))w.days.forEach(d=>d.sessions.forEach(s=>s.movedToFriday=false))});
+  return normalizeState(fresh);
+}
+let migrationNotice="";
+function load(){
+  try{
+    const raw=localStorage.getItem(KEY);
+    if(raw)return hydrateState(JSON.parse(raw));
+    for(const legacyKey of LEGACY_KEYS){
+      const legacy=localStorage.getItem(legacyKey);
+      if(legacy){migrationNotice=`Saved training data upgraded from ${legacyKey.split(".").pop()} to v${VERSION}.`;return hydrateState(JSON.parse(legacy))}
+    }
+  }catch(e){}
+  return hydrateState(null);
+}
+function openCurrentDayOnLaunch(st){
+  const today=todayIso();
+  const wi=st.weeks.findIndex(w=>w.days.some(d=>d.date===today));
+  if(wi<0)return;
+  const di=st.weeks[wi].days.findIndex(d=>d.date===today);
+  st.currentWeek=wi;
+  st.openDays=st.openDays||{};
+  st.openDays[`w${wi}-d${di}`]=true;
 }
 let state=load();
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+openCurrentDayOnLaunch(state);
+let toastTimer;
+function showToast(message){
+  const el=document.getElementById("toast");if(!el)return;
+  el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2600);
+}
+function save(){
+  try{localStorage.setItem(KEY,JSON.stringify(state));return true}
+  catch(e){showToast("Could not save. Remove a few images and try again.");return false}
+}
 function showTab(id){document.querySelectorAll("main").forEach(m=>m.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");document.querySelectorAll(".tab,.navbtn").forEach(b=>b.classList.remove("active"));document.querySelectorAll(".tab,.navbtn").forEach(b=>{let t=b.textContent.trim().toLowerCase();if(t.includes(id)||(id==="plan"&&t.includes("plan")))b.classList.add("active")});if(id==="summary")renderSummary();if(id==="counters")renderCounters()}
 function currentWeek(){return state.weeks[state.currentWeek]}
 function renderAll(){renderWeekbar();renderWeekIntent();renderWeek();renderMetrics();renderCounters();renderSummary()}
@@ -344,7 +447,7 @@ function renderWeekIntent(){
 function toggleWeekMenu(e){e.stopPropagation();const m=document.getElementById("weekMenu");if(m)m.classList.toggle("open")}
 function selectWeek(i){state.currentWeek=Number(i);save();renderAll()}
 document.addEventListener("click",()=>{const m=document.getElementById("weekMenu");if(m)m.classList.remove("open")});
-function getOptionsForSession(s){if(s.run)return runOptions;if(s.finisher)return finisherOptions;return[]}
+function getOptionsForSession(s){if(s.locked)return[];if(s.run)return runOptions;if(s.finisher)return finisherOptions;return[]}
 function sessionType(s){const t=((s.name||"")+" "+(s.detail||"")).toLowerCase();if(s.hyrox||/hyrox|race day|half rox/.test(t))return"hyrox";if(s.finisher||/finisher|emom|amrap|wall|sled|devil|burpee|carry|lunge|clock|conditioning/.test(t))return"finisher";if(s.run||/run|threshold|speed|easy/.test(t))return"run";if(/rest/.test(t))return"rest";if(/weight|f45|strength/.test(t))return"weights";return"weights"}
 function sessionIcon(s){const ty=sessionType(s);if(ty==="run")return"🏃";if(ty==="weights")return"🏋️";if(ty==="finisher")return"🔥";if(ty==="hyrox")return"⚡";if(ty==="rest")return"🛌";return"✅"}
 function optionItemHtml(txt,star=false){const p=getInfo(txt);return `<div class="optTitle">${escapeHtml(p.title)}${star?` <span class="star">★</span>`:""}</div>${p.desc?`<div class="optDesc">${escapeHtml(p.desc)}</div>`:""}`}
@@ -364,25 +467,42 @@ function isDayOpen(wi,di){
   return di===firstOpenDayIndex(w);
 }
 function toggleDay(wi,di){state.openDays=state.openDays||{};const key=dayOpenKey(wi,di);state.openDays[key]=!isDayOpen(wi,di);save();renderWeek()}
-function dayStatusHtml(d){const total=d.sessions.length;const done=d.sessions.filter(s=>s.done).length;let cls=done===total?"done":"";return `<div class="day-progress"><span class="status-pill ${cls}">${done}/${total} done</span></div>`}
+function displayEntriesForDay(w,di){
+  const hasMoved=w.days.some(d=>d.sessions.some(s=>s.movedToFriday));
+  const entries=w.days[di].sessions.map((s,si)=>({s,sourceDi:di,sourceSi:si,moved:false})).filter(x=>!x.s.movedToFriday&&!(w.days[di].day==="Fri"&&hasMoved&&x.s.fridayDefault));
+  if(w.days[di].day==="Fri")w.days.forEach((d,sourceDi)=>d.sessions.forEach((s,sourceSi)=>{if(s.movedToFriday)entries.push({s,sourceDi,sourceSi,moved:true})}));
+  return entries;
+}
+function weekAllowsFridaySwap(w){return w.number>=1&&w.number<=11&&![6,7].includes(w.number)}
+function canMoveToFriday(w,s,sourceDi){return !!(s.finisher&&s.movable&&!s.legacy&&weekAllowsFridaySwap(w)&&w.days[sourceDi].day!=="Fri")}
+function dayStatusHtml(entries){const total=entries.length;const done=entries.filter(x=>x.s.done).length;let cls=total&&done===total?"done":"";return `<div class="day-progress"><span class="status-pill ${cls}">${done}/${total} done</span></div>`}
 function renderWeek(){
   const grid=document.getElementById("weekGrid"),w=currentWeek();grid.innerHTML="";
   w.days.forEach((d,di)=>{
+    const entries=displayEntriesForDay(w,di);const hasMoved=entries.some(x=>x.moved);const load=hasMoved&&d.day==="Fri"?"easy":d.load;
     const card=document.createElement("div");const open=isDayOpen(state.currentWeek,di);const isToday=d.date===todayIso();
     card.className=`card ${open?"":"collapsed"}`;
-    card.innerHTML=`<button type="button" class="day-toggle" onclick="toggleDay(${state.currentWeek},${di})"><div class="day-left"><span class="day-chev">${open?"⌃":"⌄"}</span><div class="day-info"><div class="day-title">${d.day}${isToday?` <span class="today-pill">TODAY</span>`:""}</div><div class="date">${d.dateText}</div>${dayStatusHtml(d)}</div></div><div class="tag ${tagClass(d.load)}">${d.load.toUpperCase()}</div></button><div class="day-body"></div>`;
+    card.innerHTML=`<button type="button" class="day-toggle" aria-expanded="${open}" onclick="toggleDay(${state.currentWeek},${di})"><div class="day-left"><span class="day-chev">${open?"⌃":"⌄"}</span><div class="day-info"><div class="day-title">${d.day}${isToday?` <span class="today-pill">TODAY</span>`:""}</div><div class="date">${d.dateText}</div>${dayStatusHtml(entries)}</div></div><div class="tag ${tagClass(load)}">${load.toUpperCase()}</div></button><div class="day-body"></div>`;
     const body=card.querySelector(".day-body");
     if(w.phase && di===0){const phase=document.createElement("div");phase.className="hint";phase.textContent=`${w.phase}: Melbourne build toward Dec 12.`;body.appendChild(phase)}
-    d.sessions.forEach((s,si)=>{
+    entries.forEach(({s,sourceDi,sourceSi,moved},entryIndex)=>{
       const wrap=document.createElement("div");const ty=sessionType(s);wrap.className=`session ${ty}`;const icon=sessionIcon(s);
-      const options=getOptionsForSession(s);const picker=options.length?optionSelect(options,s.detail,s.recommended||s.detail,state.currentWeek,di,si,icon):"";
-      const surfBtn=si===0?`<button class="btn surfBtn ${d.surf&&d.surf.done?"done":""}" onclick="toggleSurf(${state.currentWeek},${di})">${d.surf&&d.surf.done?"✓ 🏄 Surf":"🏄 + Surf"}</button>`:"";
+      const options=getOptionsForSession(s);const picker=options.length?optionSelect(options,s.detail,s.recommended||s.detail,state.currentWeek,sourceDi,sourceSi,icon):"";
+      const surfBtn=entryIndex===0?`<button class="btn surfBtn ${d.surf&&d.surf.done?"done":""}" onclick="toggleSurf(${state.currentWeek},${di})">${d.surf&&d.surf.done?"✓ 🏄 Surf":"🏄 + Surf"}</button>`:"";
       const info=getInfo(s.detail);
-      wrap.innerHTML=`${picker||`<div class="session-title"><span class="typeIcon">${icon}</span>${escapeHtml(s.name)}</div><div class="small">${escapeHtml(info.desc||s.detail)}</div>`}<div class="controls"><button class="btn ${s.done?"done":""}" onclick="toggleDone(${state.currentWeek},${di},${si})">${s.done?"✓ Complete":"Mark complete"}</button><button class="btn ${s.skipped?"skip":""}" onclick="toggleSkipped(${state.currentWeek},${di},${si})">${s.skipped?"Skipped":"Skip"}</button>${surfBtn}</div><details class="perf" ${s.perfOpen?"open":""} ontoggle="setPerfOpen(${state.currentWeek},${di},${si},this.open)"><summary>Performance notes</summary><div class="form"><div><label>RPE</label><input type="number" min="1" max="10" placeholder="1–10" value="${s.rpe||""}" oninput="updateField(${state.currentWeek},${di},${si},'rpe',this.value)"></div><div><label>Avg HR</label><input type="number" placeholder="bpm" value="${s.hr||""}" oninput="updateField(${state.currentWeek},${di},${si},'hr',this.value)"></div><div><label>Pace</label><input placeholder="e.g. 5:00/km" value="${s.pace||""}" oninput="updateField(${state.currentWeek},${di},${si},'pace',this.value)"></div><div><label>Max HR</label><input type="number" placeholder="bpm" value="${s.maxhr||""}" oninput="updateField(${state.currentWeek},${di},${si},'maxhr',this.value)"></div><div class="wide"><label>Notes</label><textarea placeholder="What happened?" oninput="updateField(${state.currentWeek},${di},${si},'notes',this.value)">${s.notes||""}</textarea></div></div>${imageHtml(s,state.currentWeek,di,si)}</details>`;
+      const meta=`<div class="session-meta">${s.optional?`<span class="mini-pill">Optional</span>`:""}${s.minutes?`<span class="mini-pill">${escapeHtml(s.minutes)}</span>`:""}${moved?`<span class="mini-pill moved">Moved from ${w.days[sourceDi].day}</span>`:""}${s.legacy?`<span class="mini-pill moved">Saved from earlier version</span>`:""}</div>`;
+      const moveBtn=moved?`<button class="btn move" onclick="toggleFridayMove(${state.currentWeek},${sourceDi},${sourceSi})">Return to ${w.days[sourceDi].day}</button>`:canMoveToFriday(w,s,sourceDi)?`<button class="btn move" onclick="toggleFridayMove(${state.currentWeek},${sourceDi},${sourceSi})">Move to Fri</button>`:"";
+      wrap.innerHTML=`${picker||`<div class="session-title"><span class="typeIcon">${icon}</span>${escapeHtml(s.name)}</div><div class="small">${escapeHtml(info.desc||s.detail)}</div>`}${meta}<div class="controls"><button class="btn ${s.done?"done":""}" onclick="toggleDone(${state.currentWeek},${sourceDi},${sourceSi})">${s.done?"✓ Complete":"Mark complete"}</button><button class="btn ${s.skipped?"skip":""}" onclick="toggleSkipped(${state.currentWeek},${sourceDi},${sourceSi})">${s.skipped?"Skipped":"Skip"}</button>${moveBtn}${surfBtn}</div><details class="perf" ${s.perfOpen?"open":""} ontoggle="setPerfOpen(${state.currentWeek},${sourceDi},${sourceSi},this.open)"><summary>Performance notes</summary><div class="form"><div><label>RPE</label><input type="number" min="1" max="10" inputmode="numeric" placeholder="1–10" value="${escapeHtml(s.rpe||"")}" oninput="updateField(${state.currentWeek},${sourceDi},${sourceSi},'rpe',this.value)"></div><div><label>Avg HR</label><input type="number" inputmode="numeric" placeholder="bpm" value="${escapeHtml(s.hr||"")}" oninput="updateField(${state.currentWeek},${sourceDi},${sourceSi},'hr',this.value)"></div><div><label>Pace</label><input placeholder="e.g. 5:00/km" value="${escapeHtml(s.pace||"")}" oninput="updateField(${state.currentWeek},${sourceDi},${sourceSi},'pace',this.value)"></div><div><label>Max HR</label><input type="number" inputmode="numeric" placeholder="bpm" value="${escapeHtml(s.maxhr||"")}" oninput="updateField(${state.currentWeek},${sourceDi},${sourceSi},'maxhr',this.value)"></div><div class="wide"><label>Notes</label><textarea placeholder="What happened?" oninput="updateField(${state.currentWeek},${sourceDi},${sourceSi},'notes',this.value)">${escapeHtml(s.notes||"")}</textarea></div></div>${imageHtml(s,state.currentWeek,sourceDi,sourceSi)}</details>`;
       body.appendChild(wrap)
     });
     grid.appendChild(card)
   })
+}
+function toggleFridayMove(wi,di,si){
+  const w=state.weeks[wi],s=w.days[di].sessions[si],wasMoved=!!s.movedToFriday;
+  w.days.forEach(d=>d.sessions.forEach(x=>x.movedToFriday=false));
+  s.movedToFriday=!wasMoved;
+  save();renderAll();showToast(s.movedToFriday?"Friday will use this finisher instead.":"The planned Friday finisher is restored.");
 }
 function toggleDone(wi,di,si){const s=state.weeks[wi].days[di].sessions[si];s.done=!s.done;if(s.done)s.skipped=false;save();renderAll()}
 function toggleSkipped(wi,di,si){const s=state.weeks[wi].days[di].sessions[si];s.skipped=!s.skipped;if(s.skipped)s.done=false;save();renderAll()}
@@ -394,7 +514,7 @@ function openCounters(){showTab("counters");setTimeout(()=>window.scrollTo({top:
 function imageHtml(s,wi,di,si){
   const imgs=s.images||[];
   const previews=imgs.map((img,idx)=>`<div class="imagePreview"><img src="${img.src}" alt="Workout screenshot"><button type="button" aria-label="Remove image" onclick="removeImage(${wi},${di},${si},${idx})">×</button></div>`).join("");
-  return `<div class="imageTools"><div class="imageRow"><div class="imageDrop" tabindex="0" title="Click then paste an image" onpaste="handlePasteImage(event,${wi},${di},${si})">Paste screenshot</div><label class="btn fileBtn">+ Image<input type="file" accept="image/*" multiple onchange="handleImageFiles(this,${wi},${di},${si})"></label></div>${previews?`<div class="imagePreviews">${previews}</div>`:""}</div>`;
+  return `<div class="imageTools"><div class="imageRow"><div class="imageDrop" contenteditable="true" role="button" tabindex="0" spellcheck="false" aria-label="Paste image from clipboard" data-testid="paste-image-${wi}-${di}-${si}" title="Tap to paste, or focus here and press Command-V" onclick="pasteImageFromClipboard(${wi},${di},${si},this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pasteImageFromClipboard(${wi},${di},${si},this)}" onpaste="handlePasteImage(event,${wi},${di},${si})" onbeforeinput="if(event.inputType!=='insertFromPaste')event.preventDefault()" oninput="this.textContent='Tap to paste image'" onblur="this.textContent='Tap to paste image'">Tap to paste image</div><label class="btn fileBtn">+ Image<input type="file" accept="image/*" multiple onchange="handleImageFiles(this,${wi},${di},${si})"></label></div>${previews?`<div class="imagePreviews">${previews}</div>`:""}</div>`;
 }
 function setPerfOpen(wi,di,si,isOpen){
   state.weeks[wi].days[di].sessions[si].perfOpen=!!isOpen;
@@ -405,27 +525,54 @@ function addImageData(wi,di,si,src,name){
   s.images=s.images||[];
   s.images.push({src,name:name||"image",ts:Date.now()});
   s.perfOpen=true;
-  save();renderWeek();
+  if(!save()){s.images.pop();return}
+  renderWeek();showToast("Image saved with this session.");
+}
+function processImageFile(file,done){
+  if(file.size>12*1024*1024){showToast("That image is too large. Choose one under 12 MB.");return}
+  const reader=new FileReader();
+  reader.onerror=()=>showToast("That image could not be read.");
+  reader.onload=()=>{
+    const img=new Image();
+    img.onerror=()=>done(reader.result,file.name);
+    img.onload=()=>{
+      const maxSide=1280,scale=Math.min(1,maxSide/Math.max(img.width,img.height));
+      const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));
+      const ctx=canvas.getContext("2d");if(!ctx){done(reader.result,file.name);return}
+      try{ctx.drawImage(img,0,0,canvas.width,canvas.height);done(canvas.toDataURL("image/jpeg",.78),file.name)}catch(e){done(reader.result,file.name)}
+    };
+    img.src=reader.result;
+  };
+  reader.readAsDataURL(file);
 }
 function handleImageFiles(input,wi,di,si){
   [...input.files].forEach(file=>{
     if(!file.type.startsWith("image/"))return;
-    const reader=new FileReader();
-    reader.onload=()=>addImageData(wi,di,si,reader.result,file.name);
-    reader.readAsDataURL(file);
+    processImageFile(file,(src,name)=>addImageData(wi,di,si,src,name));
   });
   input.value="";
+}
+async function pasteImageFromClipboard(wi,di,si,target){
+  target.focus();
+  if(!navigator.clipboard||!navigator.clipboard.read){showToast("Long-press here and choose Paste, or press Command-V.");return}
+  try{
+    const items=await navigator.clipboard.read();
+    for(const item of items){
+      const type=(item.types||[]).find(t=>t.startsWith("image/"));
+      if(!type)continue;
+      const blob=await item.getType(type);
+      processImageFile(blob,(src)=>addImageData(wi,di,si,src,"pasted-image"));
+      return;
+    }
+    showToast("The clipboard does not contain an image.");
+  }catch(e){showToast("Long-press here and choose Paste, or press Command-V.")}
 }
 function handlePasteImage(e,wi,di,si){
   const items=[...(e.clipboardData&&e.clipboardData.items?e.clipboardData.items:[])];
   const files=items.map(i=>i.kind==="file"?i.getAsFile():null).filter(f=>f&&f.type.startsWith("image/"));
-  if(!files.length)return;
   e.preventDefault();
-  files.forEach(file=>{
-    const reader=new FileReader();
-    reader.onload=()=>addImageData(wi,di,si,reader.result,file.name||"pasted-image");
-    reader.readAsDataURL(file);
-  });
+  if(!files.length){showToast("The clipboard does not contain an image.");return}
+  files.forEach(file=>processImageFile(file,(src,name)=>addImageData(wi,di,si,src,name||"pasted-image")));
 }
 function removeImage(wi,di,si,idx){
   const s=state.weeks[wi].days[di].sessions[si];
@@ -434,18 +581,19 @@ function removeImage(wi,di,si,idx){
   save();renderWeek();
 }
 
-function allSessions(){return state.weeks.flatMap(w=>w.days).flatMap(d=>d.sessions)}
-function currentSessions(){const w=currentWeek();return w.days.flatMap(d=>d.sessions.map(s=>({...s,load:d.load})))}
-function renderMetrics(){const sessions=currentSessions();const done=sessions.filter(s=>s.done).length,total=sessions.length;const runs=sessions.filter(s=>s.done&&s.run).length;const finish=sessions.filter(s=>s.done&&s.finisher).length;const surfs=currentWeek().days.filter(d=>d.surf&&d.surf.done).length;document.getElementById("metrics").innerHTML=`<div class="metric" onclick="openCounters()"><span class="mi">✅</span><b>${done}/${total}</b><span>done</span></div><div class="metric" onclick="openCounters()"><span class="mi">🏃</span><b>${runs}</b><span>runs</span></div><div class="metric" onclick="openCounters()"><span class="mi">🔥</span><b>${finish}</b><span>finishers</span></div><div class="metric" onclick="openCounters()"><span class="mi">🏄</span><b>${surfs}</b><span>surfs</span></div>`}
+function sessionsForWeek(w){return w.days.flatMap((d,di)=>displayEntriesForDay(w,di).map(x=>({...x.s,load:d.load,displayDate:d.date})))}
+function allSessions(){return state.weeks.flatMap(sessionsForWeek)}
+function currentSessions(){return sessionsForWeek(currentWeek())}
+function renderMetrics(){const sessions=currentSessions();const done=sessions.filter(s=>s.done).length,total=sessions.length;const runs=sessions.filter(s=>s.done&&s.run).length;const finish=sessions.filter(s=>s.done&&s.finisher).length;const surfs=currentWeek().days.filter(d=>d.surf&&d.surf.done).length;document.getElementById("metrics").innerHTML=`<button type="button" class="metric" aria-label="${done} of ${total} sessions done. Open counters." onclick="openCounters()"><span class="mi">✅</span><b>${done}/${total}</b><span>done</span></button><button type="button" class="metric" aria-label="${runs} runs complete. Open counters." onclick="openCounters()"><span class="mi">🏃</span><b>${runs}</b><span>runs</span></button><button type="button" class="metric" aria-label="${finish} finishers complete. Open counters." onclick="openCounters()"><span class="mi">🔥</span><b>${finish}</b><span>finishers</span></button><button type="button" class="metric" aria-label="${surfs} surfs this week. Open counters." onclick="openCounters()"><span class="mi">🏄</span><b>${surfs}</b><span>surfs</span></button>`}
 function classifyFinisher(detail){
   const d=(detail||"").toLowerCase();
-  if(/engine|bike/.test(d))return"Engine EMOM";
-  if(/db overhead|push press|devil/.test(d))return"Overhead Support";
   if(/sled push|sled pull/.test(d))return"Sled / Erg";
   if(/wall|row-ski|ladder/.test(d))return"Wall-ball / Row-Ski";
   if(/lunge|carry|farmer/.test(d))return"Lunge / Carry";
   if(/burpee/.test(d))return"Burpee Rhythm";
+  if(/overhead|push press|devil/.test(d))return"Overhead Support";
   if(/clock/.test(d))return"Continuous Clock Lite";
+  if(/engine|bike/.test(d))return"Engine EMOM";
   return"Recovery Aerobic";
 }
 function renderCounters(){
@@ -463,13 +611,14 @@ function renderSummary(){
   if(w.phase)lines.push(`Phase: ${w.phase}`);
   lines.push(`Completion: ${currentSessions().filter(s=>s.done).length}/${currentSessions().length}`);
   lines.push(`Runs: ${currentSessions().filter(s=>s.done&&s.run).length}. Finishers: ${currentSessions().filter(s=>s.done&&s.finisher).length}. Simulations: ${currentSessions().filter(s=>s.done&&s.simulation).length}. Surfs: ${w.days.filter(d=>d.surf&&d.surf.done).length}.`);
-  w.days.forEach(d=>{const done=d.sessions.filter(s=>s.done).map(s=>`${s.name}: ${s.detail}${s.rpe?`, RPE ${s.rpe}`:""}${s.pace?`, pace ${s.pace}`:""}${s.hr?`, avg HR ${s.hr}`:""}${s.maxhr?`, max HR ${s.maxhr}`:""}${s.notes?`, notes: ${s.notes}`:""}`);const skipped=d.sessions.filter(s=>s.skipped).map(s=>`${s.name} skipped`);const surf=d.surf&&d.surf.done?`Surf`:"";const items=done.concat(skipped);if(surf)items.push(surf);if(items.length)lines.push(`${d.day} ${shortDate(d.date)}: ${items.join(" | ")}`)});
+  w.days.forEach((d,di)=>{const entries=displayEntriesForDay(w,di);const done=entries.filter(x=>x.s.done).map(x=>`${x.s.name}: ${x.s.detail}${x.moved?` (moved from ${w.days[x.sourceDi].day})`:""}${x.s.rpe?`, RPE ${x.s.rpe}`:""}${x.s.pace?`, pace ${x.s.pace}`:""}${x.s.hr?`, avg HR ${x.s.hr}`:""}${x.s.maxhr?`, max HR ${x.s.maxhr}`:""}${x.s.notes?`, notes: ${x.s.notes}`:""}${x.s.images&&x.s.images.length?`, images: ${x.s.images.length}`:""}`);const skipped=entries.filter(x=>x.s.skipped).map(x=>`${x.s.name} skipped`);const surf=d.surf&&d.surf.done?`Surf`:"";const items=done.concat(skipped);if(surf)items.push(surf);if(items.length)lines.push(`${d.day} ${shortDate(d.date)}: ${items.join(" | ")}`)});
   lines.push("Coach: adjust next week based on recovery, station gaps and run quality.");
   const box=document.getElementById("summaryBox");if(box)box.textContent=lines.join("\n");
 }
-async function copySummary(){renderSummary();const text=document.getElementById("summaryBox").textContent;try{await navigator.clipboard.writeText(text);alert("Summary copied.")}catch(e){alert("Copy failed. Select the text and copy manually.")}}
-function resetPlan(){if(confirm("This clears saved progress, notes, surf logs and selections. The built-in Melbourne plan stays. Reset data?")){localStorage.removeItem(KEY);state=load();renderAll()}}
-renderAll();
+async function copySummary(){renderSummary();const text=document.getElementById("summaryBox").textContent;try{await navigator.clipboard.writeText(text);showToast("Summary copied.")}catch(e){showToast("Copy failed. Select the summary and copy it manually.")}}
+function resetPlan(){if(confirm("This clears saved progress, notes, images, surf logs and selections. The built-in Melbourne plan stays. Reset data?")){[KEY,...LEGACY_KEYS].forEach(k=>localStorage.removeItem(k));migrationNotice="";state=load();save();renderAll();showToast("Training data reset.")}}
+save();renderAll();
+if(migrationNotice)setTimeout(()=>showToast(migrationNotice),250);
 </script>
 </body>
 </html>
