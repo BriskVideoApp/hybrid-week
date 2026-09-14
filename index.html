@@ -381,6 +381,10 @@ function weekIndexForDate(weeks){
 }
 function normalizeState(st){
   (st.weeks||[]).forEach(w=>w.days.forEach(d=>d.sessions.forEach(s=>{
+    if(/^Engine EMOM 15 min, RPE 6 max:\s*replace bike minute/i.test(String(s.detail||""))){
+      s.detail="Engine EMOM — 15 min, RPE 6 max: Repeat 3 rounds: min 1 row calories, min 2 ski calories, min 3 wall balls, min 4 seated DB strict overhead press for 8–12 controlled reps with 2–3 reps in reserve, min 5 rest. Choose row, ski and wall-ball targets you finish in about 40 sec. Scale or omit row, SkiErg and wall balls if hamstring soreness changes your movement. Stop if pain worsens.";
+      s.minutes="15 min";s.coachAdjusted=true;
+    }
     if((s.run||s.finisher) && !s.recommended) s.recommended=s.detail;
   })));
   return st;
@@ -635,7 +639,7 @@ function coachProgramContext(){
       week:w.number,phase:w.phase,start:w.start,end:w.end,
       days:w.days.map(d=>({
         date:d.date,day:d.day,load:d.load,surf:Boolean(d.surf&&d.surf.done),
-        sessions:d.sessions.map(s=>({name:s.name,detail:s.detail,minutes:s.minutes||"",optional:Boolean(s.optional),done:Boolean(s.done),skipped:Boolean(s.skipped),rpe:s.rpe||"",pace:s.pace||"",avgHR:s.hr||"",maxHR:s.maxhr||"",notes:s.notes||"",strava:s.stravaActivityId?{name:s.stravaActivityName||"",durationSeconds:s.stravaDuration||0,distanceMetres:s.stravaDistance||0,device:s.stravaDeviceName||""}:null}))
+        sessions:d.sessions.map(s=>{const info=getInfo(s.detail);return{name:s.name,storedDetail:s.detail,displayedTitle:info.title,displayedInstructions:info.desc,minutes:s.minutes||"",optional:Boolean(s.optional),done:Boolean(s.done),skipped:Boolean(s.skipped),rpe:s.rpe||"",pace:s.pace||"",avgHR:s.hr||"",maxHR:s.maxhr||"",notes:s.notes||"",strava:s.stravaActivityId?{name:s.stravaActivityName||"",durationSeconds:s.stravaDuration||0,distanceMetres:s.stravaDistance||0,device:s.stravaDeviceName||""}:null}})
       }))
     }))
   }
@@ -690,7 +694,11 @@ function findCoachTarget(change){
 function applyCoachProposal(index){
   const cs=coachState(),message=cs.messages[index],proposal=message&&message.proposal;if(!proposal||!Array.isArray(proposal.changes))return;
   const snapshots=[],targets=[];
-  for(const change of proposal.changes){const target=findCoachTarget(change);if(!target){showToast(`Could not find ${change.session_name} on ${change.date}.`);return}targets.push({change,target});snapshots.push({date:target.day.date,sessionName:target.session.name,detail:target.session.detail,minutes:target.session.minutes,load:target.day.load,coachAdjustedLoad:Boolean(target.day.coachAdjustedLoad)})}
+  for(const change of proposal.changes){
+    const target=findCoachTarget(change);if(!target){showToast(`Could not find ${change.session_name} on ${change.date}.`);return}
+    if(change.new_detail){const next=String(change.new_detail),info=getInfo(next);if(!next.includes(":")||!info.desc||/^(replace|change|keep|omit|add|remove|swap|shorten)\b/i.test(info.desc)){showToast("That coach edit was incomplete. Ask for a full workout rewrite.");return}}
+    targets.push({change,target});snapshots.push({date:target.day.date,sessionName:target.session.name,detail:target.session.detail,minutes:target.session.minutes,load:target.day.load,coachAdjustedLoad:Boolean(target.day.coachAdjustedLoad)})
+  }
   targets.forEach(({change,target})=>{if(change.new_detail)target.session.detail=String(change.new_detail).slice(0,800);if(change.new_minutes)target.session.minutes=String(change.new_minutes).slice(0,80);if(["easy","hard","rest"].includes(change.new_load)){target.day.load=change.new_load;target.day.coachAdjustedLoad=true}target.session.coachAdjusted=true});
   cs.lastUndo={snapshots,messageIndex:index};message.proposalApplied=true;save();renderAll();showToast("Coach adjustment applied.");
 }
