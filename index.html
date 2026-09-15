@@ -122,6 +122,13 @@ body{background:#f4f4f1}.app{max-width:640px;padding:14px 14px 108px}.appHeader{
       <div class="libitem"><b>Lunge / carry</b><br><span class="muted">Sandbag lunges, farmer carries and sled pulls. Brace, breathe and keep steps controlled.</span></div>
       <div class="libitem"><b>Burpee rhythm</b><br><span class="muted">Burpees or BBJ mixed with ski, row or run. Smooth floor breathing. No panic reps.</span></div>
     </div>
+    <div class="moreGroup"><b>Quality metcon finishers</b>
+      <div class="libitem"><b>Ski / push-up / core</b><br><span class="muted">5 quality rounds: 500 m ski, 15 hand-release push-ups and 20 medicine-ball sit-ups. Hold 7/10.</span></div>
+      <div class="libitem"><b>Bike / box / lunge</b><br><span class="muted">3 controlled rounds: 12–15 bike calories, 12 box jump-overs and 30 m unweighted walking lunge.</span></div>
+      <div class="libitem"><b>KB / lunge / wall-ball ladder</b><br><span class="muted">15-minute ascending ladder of Russian swings, alternating lunges and wall balls.</span></div>
+      <div class="libitem"><b>DB complex / burpees</b><br><span class="muted">15-minute AMRAP of deadlifts, hang cleans, push presses and controlled burpees.</span></div>
+      <div class="libitem"><b>Ski / sled / carry</b><br><span class="muted">3 quality rounds pairing SkiErg with race-feel sled pulls and farmer carries.</span></div>
+    </div>
     <div class="moreGroup"><b>Friday rule</b>
       <div class="libitem"><span class="muted">Friday pairs F45 or easy aerobic with one 15–20 min complementary finisher. Event and taper Fridays switch to recovery or a short primer.</span></div>
     </div>
@@ -161,6 +168,7 @@ const raceDateStr="2026-12-12";
 const STRAVA_BRIDGE_URL="https://hybrid-week-strava-bridge.tom637535.chatgpt.site";
 
 const finishers=[
+  "Quality Metcon",
   "Engine EMOM",
   "Overhead Support",
   "Sled / Erg",
@@ -186,6 +194,11 @@ const runOptions=[
 
 const finisherOptions=[
   "Engine EMOM 20–24 min",
+  "Ski / Push-up / Core Quality 20–25 min",
+  "Bike / Box / Lunge Quality 15–20 min",
+  "KB / Lunge / Wall-ball Ladder 15 min",
+  "DB Complex / Burpees 15 min",
+  "Ski / Sled / Carry Quality 18–22 min",
   "Overhead Support 15–18 min",
   "Sled Push / Bike 15–20 min",
   "Sled Pull / Ski 15–20 min",
@@ -211,6 +224,11 @@ const workoutInfo={
   "Shakeout 20–30 min + strides":{title:"Shakeout + strides",desc:"Run 20–30 min very easy, then 4 short relaxed strides with full recovery. Finish feeling sharper than you started."},
 
   "Engine EMOM 20–24 min":{title:"Engine EMOM",desc:"Repeat 5–6 rounds: min 1 row calories, min 2 ski calories, min 3 wall balls, min 4 bike or rest. Choose targets you finish in about 40 sec. Hold 7/10."},
+  "Ski / Push-up / Core Quality 20–25 min":{title:"Ski / Push-up / Core Quality",desc:"5 rounds: 500 m SkiErg, 15 hand-release push-ups, 20 medicine-ball sit-ups at 9 kg. Hold 7/10. Ski smoothly, keep every push-up clean and control the sit-ups. This is quality work, not a race."},
+  "Bike / Box / Lunge Quality 15–20 min":{title:"Bike / Box / Lunge Quality",desc:"3 rounds: 12–15 calories Echo or Assault Bike, 12 box jump-overs at 24 in, 30 m unweighted walking lunge. Hold 7/10. Step down if needed and keep the lunges controlled."},
+  "KB / Lunge / Wall-ball Ladder 15 min":{title:"KB / Lunge / Wall-ball Ladder",desc:"15-minute AMRAP: Start with 2 Russian kettlebell swings at 24 kg, 2 alternating lunges, 2 wall balls at race weight. Add 2 reps to every movement each round. Hold 7/10 and protect movement quality."},
+  "DB Complex / Burpees 15 min":{title:"DB Complex / Burpees",desc:"15-minute AMRAP: 12 dual-dumbbell deadlifts, 9 dual-dumbbell hang cleans, 6 dual-dumbbell push presses, 3 burpees over the dumbbells. Use 2 × 20 kg or a load you can move cleanly. Add 3 burpees each round. Hold 7/10."},
+  "Ski / Sled / Carry Quality 18–22 min":{title:"Ski / Sled / Carry Quality",desc:"3 rounds: 500 m SkiErg, 25 m sled pull at HYROX race feel, 100 m farmer carry at race weight. Hold 7/10. Keep the ski controlled, organise the rope and carry tall. Rest 60–90 sec between rounds if quality drops."},
   "Overhead Support 15–18 min":{title:"Overhead Support",desc:"Every 2 min for 16–20 min: 9 DB push press, 6 DB front squat, 3 devil press. Use moderate DBs. Smooth reps, legs drive, no shoulder grind."},
   "Sled Push / Bike 15–20 min":{title:"Sled Push / Bike",desc:"5 sets: 10–15 cal bike, then 25 m sled push at race feel. Rest 90 sec. Strong body angle, fast feet, steady breathing."},
   "Sled Pull / Ski 15–20 min":{title:"Sled Pull / Ski",desc:"5 sets: 250 m ski, then 25 m sled pull at race feel. Rest 90 sec. Pull with legs and hips. Keep the rope organised."},
@@ -896,7 +914,7 @@ function renderStravaInsights(){
 function toggleDone(wi,di,si){const s=state.weeks[wi].days[di].sessions[si];s.done=!s.done;if(s.done)s.skipped=false;save();renderAll()}
 function toggleSkipped(wi,di,si){const s=state.weeks[wi].days[di].sessions[si];s.skipped=!s.skipped;if(s.skipped)s.done=false;save();renderAll()}
 function updateField(wi,di,si,field,val){state.weeks[wi].days[di].sessions[si][field]=val;save()}
-function changeDetail(wi,di,si,val){const s=state.weeks[wi].days[di].sessions[si];s.detail=val;save();renderAll()}
+function changeDetail(wi,di,si,val){const s=state.weeks[wi].days[di].sessions[si];s.detail=val;if(s.finisher){const m=String(val).match(/(\d+)(?:\s*[–-]\s*(\d+))?\s*min/i);if(m)s.minutes=m[2]?`${m[1]}–${m[2]} min`:`${m[1]} min`}save();renderAll()}
 function toggleSurf(wi,di){const d=state.weeks[wi].days[di];d.surf=d.surf||{done:false};d.surf.done=!d.surf.done;save();renderAll()}
 
 function openCounters(){showTab("progress")}
@@ -976,6 +994,7 @@ function currentSessions(){return sessionsForWeek(currentWeek())}
 function renderMetrics(){const sessions=currentSessions();const done=sessions.filter(s=>s.done).length,total=sessions.length;const runs=sessions.filter(s=>s.done&&s.run).length;const finish=sessions.filter(s=>s.done&&s.finisher).length;const surfs=currentWeek().days.filter(d=>d.surf&&d.surf.done).length;document.getElementById("metrics").innerHTML=`<button type="button" class="metric" aria-label="${done} of ${total} sessions done. Open counters." onclick="openCounters()"><span class="mi">✅</span><b>${done}/${total}</b><span>done</span></button><button type="button" class="metric" aria-label="${runs} runs complete. Open counters." onclick="openCounters()"><span class="mi">🏃</span><b>${runs}</b><span>runs</span></button><button type="button" class="metric" aria-label="${finish} finishers complete. Open counters." onclick="openCounters()"><span class="mi">🔥</span><b>${finish}</b><span>finishers</span></button><button type="button" class="metric" aria-label="${surfs} surfs this week. Open counters." onclick="openCounters()"><span class="mi">🏄</span><b>${surfs}</b><span>surfs</span></button>`}
 function classifyFinisher(detail){
   const d=(detail||"").toLowerCase();
+  if(/quality/.test(d))return"Quality Metcon";
   if(/sled push|sled pull/.test(d))return"Sled / Erg";
   if(/wall|row-ski|ladder/.test(d))return"Wall-ball / Row-Ski";
   if(/lunge|carry|farmer/.test(d))return"Lunge / Carry";
