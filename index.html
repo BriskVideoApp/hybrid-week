@@ -493,6 +493,7 @@ let toastTimer;
 let stravaCallbackNotice="";
 let stravaSyncing=false;
 let stravaImportingId="";
+let stravaFinderSession="";
 function showToast(message){
   const el=document.getElementById("toast");if(!el)return;
   el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2600);
@@ -896,10 +897,16 @@ function matchingStravaActivities(s,wi,di){
   const used=new Set(state.weeks.flatMap(w=>w.days).flatMap(d=>d.sessions).filter(other=>other!==s&&other.stravaActivityId).map(other=>String(other.stravaActivityId)));
   return [...stravaState().activities].filter(a=>activityDate(a)===date&&!used.has(String(a.id))).sort((a,b)=>stravaPreference(a,s)-stravaPreference(b,s)||String(a.startDateLocal).localeCompare(String(b.startDateLocal)));
 }
+function stravaSessionKey(wi,di,si){return`${wi}:${di}:${si}`}
+function openStravaFinder(wi,di,si){
+  if(!isStravaConnected()){showToast("Connect Strava in More to find a workout.");showTab("more");return}
+  stravaFinderSession=stravaSessionKey(wi,di,si);renderAll();syncStravaActivities(true);
+}
+function closeStravaFinder(){stravaFinderSession="";renderAll()}
 function stravaImportHtml(s,wi,di,si){
   if(!isStravaConnected()||s.stravaActivityId)return"";
   const matches=matchingStravaActivities(s,wi,di).slice(0,6);
-  return`<div class="stravaImport"><div class="stravaImportHead"><div class="stravaImportTitle">Import from Strava</div><button class="btn" type="button" onclick="syncStravaActivities()">Sync</button></div>${matches.length?`<div class="stravaMatchList">${matches.map(a=>`<button class="stravaActivity" type="button" onclick="importStravaActivity(${wi},${di},${si},'${String(a.id).replace(/[^0-9]/g,"")}')" ${stravaImportingId?"disabled":""}><span class="stravaActivityTop"><span class="stravaActivityName">${escapeHtml(a.name||"Workout")}</span><span class="stravaUse">${String(a.id)===stravaImportingId?"Reading…":"Use activity"}</span></span><span class="stravaActivityMeta">${activityMeta(a)}</span></button>`).join("")}</div>`:`<div class="stravaEmpty">No synced activity on this date. Tap Sync after the workout appears in Strava.</div>`}</div>`;
+  return`<div class="stravaImport"><div class="stravaImportHead"><div class="stravaImportTitle">Find a Strava workout</div><div class="stravaFoundActions"><button class="btn" type="button" onclick="syncStravaActivities()" ${stravaSyncing?"disabled":""}>${stravaSyncing?"Searching…":"Search again"}</button><button class="btn" type="button" onclick="closeStravaFinder()">Close</button></div></div>${matches.length?`<div class="stravaMatchList">${matches.map(a=>`<button class="stravaActivity" type="button" onclick="importStravaActivity(${wi},${di},${si},'${String(a.id).replace(/[^0-9]/g,"")}')" ${stravaImportingId?"disabled":""}><span class="stravaActivityTop"><span class="stravaActivityName">${escapeHtml(a.name||"Workout")}</span><span class="stravaUse">${String(a.id)===stravaImportingId?"Reading…":"Use activity"}</span></span><span class="stravaActivityMeta">${activityMeta(a)}</span></button>`).join("")}</div>`:`<div class="stravaEmpty">${stravaSyncing?"Checking your Strava activities…":"No activity found for this day. Try Search again once the workout has synced to Strava."}</div>`}</div>`;
 }
 function resultMetricHtml(value,label){return value?`<div class="resultMetric"><b>${escapeHtml(String(value))}</b><span>${label}</span></div>`:""}
 function paceFromSpeed(speed){const value=Number(speed||0);if(value<=0)return"";const seconds=Math.round(1000/value);return`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,"0")}/km`}
@@ -1023,7 +1030,9 @@ function renderSessionStack(el,w,displayDi,entries,context){
     const info=getInfo(s.detail),wi=state.weeks.indexOf(w),status=sessionStateInfo(s,wi,sourceDi),found=status.cls==="found";
     const meta=`<div class="session-meta">${s.optional?`<span class="mini-pill">Optional</span>`:""}${s.minutes?`<span class="mini-pill">${escapeHtml(s.minutes)}</span>`:""}${moved?`<span class="mini-pill moved">Moved from ${w.days[sourceDi].day}</span>`:""}${s.legacy?`<span class="mini-pill moved">Saved from earlier version</span>`:""}<span class="mini-pill sessionState ${status.cls}">${status.label}</span></div>`;
     const completeLabel=s.done?"Undo completion":found?"Complete manually":"Complete",completeClass=s.done?"done":found?"":"primaryAction";
-    return`<article class="session ${ty}">${picker||`<div class="session-title"><span class="typeIcon">${icon}</span>${escapeHtml(s.name)}</div>`}${meta}${workoutDetailsHtml(s,wi,sourceDi,sourceSi,info.desc||s.detail)}${sessionOutcomeHtml(s,wi,sourceDi,sourceSi,context)}<div class="controls"><button class="btn ${completeClass}" onclick="toggleDone(${wi},${sourceDi},${sourceSi})">${completeLabel}</button><button class="btn ${s.skipped?"skip":""}" onclick="toggleSkipped(${wi},${sourceDi},${sourceSi})">${s.skipped?"Skipped":"Skip"}</button></div>${performanceHtml(s,wi,sourceDi,sourceSi,context)}</article>`;
+    const findStrava=context==="today"&&isStravaConnected()&&!s.stravaActivityId&&sessionType(s)!=="rest"?`<button class="btn" type="button" onclick="openStravaFinder(${wi},${sourceDi},${sourceSi})">Find on Strava</button>`:"";
+    const finderOpen=context==="today"&&stravaFinderSession===stravaSessionKey(wi,sourceDi,sourceSi)?stravaImportHtml(s,wi,sourceDi,sourceSi):"";
+    return`<article class="session ${ty}">${picker||`<div class="session-title"><span class="typeIcon">${icon}</span>${escapeHtml(s.name)}</div>`}${meta}${workoutDetailsHtml(s,wi,sourceDi,sourceSi,info.desc||s.detail)}${sessionOutcomeHtml(s,wi,sourceDi,sourceSi,context)}<div class="controls"><button class="btn ${completeClass}" onclick="toggleDone(${wi},${sourceDi},${sourceSi})">${completeLabel}</button><button class="btn ${s.skipped?"skip":""}" onclick="toggleSkipped(${wi},${sourceDi},${sourceSi})">${s.skipped?"Skipped":"Skip"}</button>${findStrava}</div>${finderOpen}${performanceHtml(s,wi,sourceDi,sourceSi,context)}</article>`;
   }).join("");
 }
 function renderToday(){
